@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>D:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\Debug\UARTATMR.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>UARTATMR.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>UARTATMR.map</FILE>
+  <FILE>UARTATMR.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <setup><FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\main.asm</FILE><LINE>14</LINE></setup>
+  <UART_rx><FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\main.asm</FILE><LINE>35</LINE></UART_rx>
+  <IO_set><FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\main.asm</FILE><LINE>42</LINE></IO_set>
+  <UART_set><FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\main.asm</FILE><LINE>24</LINE></UART_set>
+  <loop><FILE>D:\UVG\10_Semestre\ProyectoGrad\UART\UARTATMR\UARTATMR\main.asm</FILE><LINE>19</LINE></loop>
+ </LABELS>
+</ASSEMBLER_INFO>
