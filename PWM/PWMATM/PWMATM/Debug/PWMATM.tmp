@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega328P"</DEVICE>
+ <WORKING_DIR>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>D:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m328Pdef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\Debug\PWMATM.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>PWMATM.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>PWMATM.map</FILE>
+  <FILE>PWMATM.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>10</LINE></start>
+  <IO_SET><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>23</LINE></IO_SET>
+  <PWM_SET><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>33</LINE></PWM_SET>
+  <ADC_SET><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>45</LINE></ADC_SET>
+  <VAR_SET><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>53</LINE></VAR_SET>
+  <Loop><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>16</LINE></Loop>
+  <POLL><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>65</LINE></POLL>
+  <TIME><FILE>D:\UVG\10_Semestre\ProyectoGrad\PWM\PWMATM\PWMATM\main.asm</FILE><LINE>72</LINE></TIME>
+ </LABELS>
+</ASSEMBLER_INFO>
