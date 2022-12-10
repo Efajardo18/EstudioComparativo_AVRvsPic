@@ -1,0 +1,2198 @@
+
+
+Microchip MPLAB XC8 Assembler V2.36 build 20220127204148 
+                                                                                               Tue Dec 06 00:48:45 2022
+
+Microchip MPLAB XC8 C Compiler v2.36 (Free license) build 20220127204148 Og1 
+     1                           	processor	16F887
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2,group=1
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
+    14                           	psect	text6,local,class=CODE,merge=1,delta=2
+    15                           	psect	intentry,global,class=CODE,delta=2
+    16                           	psect	text7,local,class=CODE,merge=1,delta=2
+    17                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    18                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    19                           	dabs	1,0x7E,2
+    20  0000                     
+    21                           ; Version 2.40
+    22                           ; Generated 17/11/2021 GMT
+    23                           ; 
+    24                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution. Publication is not required when
+    38                           ;        this file is used in an embedded application.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
+    52                           ; 
+    53                           ; Code-generator required, PIC16F887 Definitions
+    54                           ; 
+    55                           ; SFR Addresses
+    56  0000                     	;# 
+    57  0001                     	;# 
+    58  0002                     	;# 
+    59  0003                     	;# 
+    60  0004                     	;# 
+    61  0005                     	;# 
+    62  0006                     	;# 
+    63  0007                     	;# 
+    64  0008                     	;# 
+    65  0009                     	;# 
+    66  000A                     	;# 
+    67  000B                     	;# 
+    68  000C                     	;# 
+    69  000D                     	;# 
+    70  000E                     	;# 
+    71  000E                     	;# 
+    72  000F                     	;# 
+    73  0010                     	;# 
+    74  0011                     	;# 
+    75  0012                     	;# 
+    76  0013                     	;# 
+    77  0014                     	;# 
+    78  0015                     	;# 
+    79  0015                     	;# 
+    80  0016                     	;# 
+    81  0017                     	;# 
+    82  0018                     	;# 
+    83  0019                     	;# 
+    84  001A                     	;# 
+    85  001B                     	;# 
+    86  001B                     	;# 
+    87  001C                     	;# 
+    88  001D                     	;# 
+    89  001E                     	;# 
+    90  001F                     	;# 
+    91  0081                     	;# 
+    92  0085                     	;# 
+    93  0086                     	;# 
+    94  0087                     	;# 
+    95  0088                     	;# 
+    96  0089                     	;# 
+    97  008C                     	;# 
+    98  008D                     	;# 
+    99  008E                     	;# 
+   100  008F                     	;# 
+   101  0090                     	;# 
+   102  0091                     	;# 
+   103  0092                     	;# 
+   104  0093                     	;# 
+   105  0093                     	;# 
+   106  0093                     	;# 
+   107  0094                     	;# 
+   108  0095                     	;# 
+   109  0096                     	;# 
+   110  0097                     	;# 
+   111  0098                     	;# 
+   112  0099                     	;# 
+   113  009A                     	;# 
+   114  009B                     	;# 
+   115  009C                     	;# 
+   116  009D                     	;# 
+   117  009E                     	;# 
+   118  009F                     	;# 
+   119  0105                     	;# 
+   120  0107                     	;# 
+   121  0108                     	;# 
+   122  0109                     	;# 
+   123  010C                     	;# 
+   124  010C                     	;# 
+   125  010D                     	;# 
+   126  010E                     	;# 
+   127  010F                     	;# 
+   128  0185                     	;# 
+   129  0187                     	;# 
+   130  0188                     	;# 
+   131  0189                     	;# 
+   132  018C                     	;# 
+   133  018D                     	;# 
+   134  0000                     	;# 
+   135  0001                     	;# 
+   136  0002                     	;# 
+   137  0003                     	;# 
+   138  0004                     	;# 
+   139  0005                     	;# 
+   140  0006                     	;# 
+   141  0007                     	;# 
+   142  0008                     	;# 
+   143  0009                     	;# 
+   144  000A                     	;# 
+   145  000B                     	;# 
+   146  000C                     	;# 
+   147  000D                     	;# 
+   148  000E                     	;# 
+   149  000E                     	;# 
+   150  000F                     	;# 
+   151  0010                     	;# 
+   152  0011                     	;# 
+   153  0012                     	;# 
+   154  0013                     	;# 
+   155  0014                     	;# 
+   156  0015                     	;# 
+   157  0015                     	;# 
+   158  0016                     	;# 
+   159  0017                     	;# 
+   160  0018                     	;# 
+   161  0019                     	;# 
+   162  001A                     	;# 
+   163  001B                     	;# 
+   164  001B                     	;# 
+   165  001C                     	;# 
+   166  001D                     	;# 
+   167  001E                     	;# 
+   168  001F                     	;# 
+   169  0081                     	;# 
+   170  0085                     	;# 
+   171  0086                     	;# 
+   172  0087                     	;# 
+   173  0088                     	;# 
+   174  0089                     	;# 
+   175  008C                     	;# 
+   176  008D                     	;# 
+   177  008E                     	;# 
+   178  008F                     	;# 
+   179  0090                     	;# 
+   180  0091                     	;# 
+   181  0092                     	;# 
+   182  0093                     	;# 
+   183  0093                     	;# 
+   184  0093                     	;# 
+   185  0094                     	;# 
+   186  0095                     	;# 
+   187  0096                     	;# 
+   188  0097                     	;# 
+   189  0098                     	;# 
+   190  0099                     	;# 
+   191  009A                     	;# 
+   192  009B                     	;# 
+   193  009C                     	;# 
+   194  009D                     	;# 
+   195  009E                     	;# 
+   196  009F                     	;# 
+   197  0105                     	;# 
+   198  0107                     	;# 
+   199  0108                     	;# 
+   200  0109                     	;# 
+   201  010C                     	;# 
+   202  010C                     	;# 
+   203  010D                     	;# 
+   204  010E                     	;# 
+   205  010F                     	;# 
+   206  0185                     	;# 
+   207  0187                     	;# 
+   208  0188                     	;# 
+   209  0189                     	;# 
+   210  018C                     	;# 
+   211  018D                     	;# 
+   212  0005                     _PORTA	set	5
+   213  001A                     _RCREG	set	26
+   214  000C                     _PIR1bits	set	12
+   215  000B                     _INTCON	set	11
+   216  0018                     _RCSTA	set	24
+   217  0085                     _TRISA	set	133
+   218  008F                     _OSCCON	set	143
+   219  008F                     _OSCCONbits	set	143
+   220  008C                     _PIE1	set	140
+   221  0099                     _SPBRG	set	153
+   222  009A                     _SPBRGH	set	154
+   223  0098                     _TXSTA	set	152
+   224  0187                     _BAUDCTL	set	391
+   225                           
+   226                           	psect	cinit
+   227  000F                     start_initialization:	
+   228                           ; #config settings
+   229                           
+   230  000F                     __initialization:
+   231                           
+   232                           ; Clear objects allocated to COMMON
+   233  000F  01FA               	clrf	__pbssCOMMON& (0+127)
+   234  0010                     end_of_initialization:	
+   235                           ;End of C runtime variable initialization code
+   236                           
+   237  0010                     __end_of__initialization:
+   238  0010  0183               	clrf	3
+   239  0011  120A  118A  2B49   	ljmp	_main	;jump to C main() function
+   240                           
+   241                           	psect	bssCOMMON
+   242  007A                     __pbssCOMMON:
+   243  007A                     _Rdata:
+   244  007A                     	ds	1
+   245                           
+   246                           	psect	cstackCOMMON
+   247  0070                     __pcstackCOMMON:
+   248  0070                     ?_IO_set:
+   249  0070                     ?_UART_Rec:	
+   250                           ; 1 bytes @ 0x0
+   251                           
+   252  0070                     ??_UART_Rec:	
+   253                           ; 1 bytes @ 0x0
+   254                           
+   255  0070                     ?_main:	
+   256                           ; 1 bytes @ 0x0
+   257                           
+   258  0070                     ?_ISR:	
+   259                           ; 1 bytes @ 0x0
+   260                           
+   261  0070                     ??_ISR:	
+   262                           ; 1 bytes @ 0x0
+   263                           
+   264                           
+   265                           ; 1 bytes @ 0x0
+   266  0070                     	ds	3
+   267  0073                     ??_IO_set:
+   268  0073                     ?_UART_RXset:	
+   269                           ; 1 bytes @ 0x3
+   270                           
+   271  0073                     ?_OSC_set:	
+   272                           ; 1 bytes @ 0x3
+   273                           
+   274  0073                     ??___aldiv:	
+   275                           ; 1 bytes @ 0x3
+   276                           
+   277  0073                     UART_RXset@InterruptEnable:	
+   278                           ; 1 bytes @ 0x3
+   279                           
+   280  0073                     OSC_set@InternalOsc:	
+   281                           ; 1 bytes @ 0x3
+   282                           
+   283                           
+   284                           ; 1 bytes @ 0x3
+   285  0073                     	ds	1
+   286  0074                     ??_UART_RXset:
+   287  0074                     ??_OSC_set:	
+   288                           ; 1 bytes @ 0x4
+   289                           
+   290  0074                     ___aldiv@counter:	
+   291                           ; 1 bytes @ 0x4
+   292                           
+   293                           
+   294                           ; 1 bytes @ 0x4
+   295  0074                     	ds	1
+   296  0075                     UART_RXset@ContSingRx:
+   297  0075                     OSC_set@FreqClockSelect:	
+   298                           ; 1 bytes @ 0x5
+   299                           
+   300  0075                     ___aldiv@sign:	
+   301                           ; 1 bytes @ 0x5
+   302                           
+   303                           
+   304                           ; 1 bytes @ 0x5
+   305  0075                     	ds	1
+   306  0076                     ___aldiv@quotient:
+   307                           
+   308                           ; 4 bytes @ 0x6
+   309  0076                     	ds	4
+   310  007A                     ??_main:
+   311                           
+   312                           	psect	cstackBANK0
+   313  0020                     __pcstackBANK0:	
+   314                           ; 1 bytes @ 0xA
+   315                           
+   316  0020                     ?___aldiv:
+   317  0020                     ___aldiv@divisor:	
+   318                           ; 4 bytes @ 0x0
+   319                           
+   320                           
+   321                           ; 4 bytes @ 0x0
+   322  0020                     	ds	4
+   323  0024                     ___aldiv@dividend:
+   324                           
+   325                           ; 4 bytes @ 0x4
+   326  0024                     	ds	4
+   327  0028                     ?_UART_BDset:
+   328  0028                     UART_BDset@baud:	
+   329                           ; 1 bytes @ 0x8
+   330                           
+   331                           
+   332                           ; 2 bytes @ 0x8
+   333  0028                     	ds	2
+   334  002A                     UART_BDset@SyncSel:
+   335                           
+   336                           ; 1 bytes @ 0xA
+   337  002A                     	ds	1
+   338  002B                     UART_BDset@BitBaudSize:
+   339                           
+   340                           ; 1 bytes @ 0xB
+   341  002B                     	ds	1
+   342  002C                     UART_BDset@HighSpeed:
+   343                           
+   344                           ; 1 bytes @ 0xC
+   345  002C                     	ds	1
+   346  002D                     ??_UART_BDset:
+   347                           
+   348                           ; 1 bytes @ 0xD
+   349  002D                     	ds	1
+   350  002E                     UART_BDset@PeriodBaud_89:
+   351                           
+   352                           ; 2 bytes @ 0xE
+   353  002E                     	ds	2
+   354  0030                     UART_BDset@PeriodBaud_90:
+   355                           
+   356                           ; 2 bytes @ 0x10
+   357  0030                     	ds	2
+   358  0032                     UART_BDset@PeriodBaud:
+   359                           
+   360                           ; 2 bytes @ 0x12
+   361  0032                     	ds	2
+   362  0034                     UART_BDset@PeriodBaud_88:
+   363                           
+   364                           ; 2 bytes @ 0x14
+   365  0034                     	ds	2
+   366  0036                     UART_BDset@PeriodBaud_91:
+   367                           
+   368                           ; 2 bytes @ 0x16
+   369  0036                     	ds	2
+   370  0038                     _UART_BDset$738:
+   371                           
+   372                           ; 4 bytes @ 0x18
+   373  0038                     	ds	4
+   374                           
+   375                           	psect	maintext
+   376  0349                     __pmaintext:	
+   377 ;;
+   378 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   379 ;;
+   380 ;; *************** function _main *****************
+   381 ;; Defined at:
+   382 ;;		line 45 in file "main.c"
+   383 ;; Parameters:    Size  Location     Type
+   384 ;;		None
+   385 ;; Auto vars:     Size  Location     Type
+   386 ;;		None
+   387 ;; Return value:  Size  Location     Type
+   388 ;;                  1    wreg      void 
+   389 ;; Registers used:
+   390 ;;		wreg, status,2, status,0, pclath, cstack
+   391 ;; Tracked objects:
+   392 ;;		On entry : B00/0
+   393 ;;		On exit  : 0/0
+   394 ;;		Unchanged: 0/0
+   395 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   396 ;;      Params:         0       0       0       0       0
+   397 ;;      Locals:         0       0       0       0       0
+   398 ;;      Temps:          0       0       0       0       0
+   399 ;;      Totals:         0       0       0       0       0
+   400 ;;Total ram usage:        0 bytes
+   401 ;; Hardware stack levels required when called: 4
+   402 ;; This function calls:
+   403 ;;		_IO_set
+   404 ;;		_OSC_set
+   405 ;;		_UART_BDset
+   406 ;;		_UART_RXset
+   407 ;; This function is called by:
+   408 ;;		Startup code after reset
+   409 ;; This function uses a non-reentrant model
+   410 ;;
+   411                           
+   412  0349                     _main:	
+   413                           ;psect for function _main
+   414                           
+   415  0349                     l1207:	
+   416                           ;incstack = 0
+   417                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
+   418                           
+   419                           
+   420                           ;main.c: 46:     OSC_set(7,0);
+   421  0349  01F3               	clrf	OSC_set@InternalOsc
+   422  034A  3007               	movlw	7
+   423  034B  120A  118A  229F  120A  118A  	fcall	_OSC_set
+   424  0350                     l1209:
+   425                           
+   426                           ;main.c: 47:     IO_set();
+   427  0350  120A  118A  238A  120A  118A  	fcall	_IO_set
+   428  0355                     l1211:
+   429                           
+   430                           ;main.c: 48:     UART_BDset(9600, 0, 0, 0);
+   431  0355  3080               	movlw	128
+   432  0356  1283               	bcf	3,5	;RP0=0, select bank0
+   433  0357  1303               	bcf	3,6	;RP1=0, select bank0
+   434  0358  00A8               	movwf	UART_BDset@baud
+   435  0359  3025               	movlw	37
+   436  035A  00A9               	movwf	UART_BDset@baud+1
+   437  035B  01AA               	clrf	UART_BDset@SyncSel
+   438  035C  01AB               	clrf	UART_BDset@BitBaudSize
+   439  035D  01AC               	clrf	UART_BDset@HighSpeed
+   440  035E  120A  118A  2014  120A  118A  	fcall	_UART_BDset
+   441  0363                     l1213:
+   442                           
+   443                           ;main.c: 49:     UART_RXset(1, 1);
+   444  0363  01F3               	clrf	UART_RXset@InterruptEnable
+   445  0364  0AF3               	incf	UART_RXset@InterruptEnable,f
+   446  0365  3001               	movlw	1
+   447  0366  120A  118A  2317  120A  118A  	fcall	_UART_RXset
+   448  036B                     l84:	
+   449                           ;main.c: 50:     while(1){
+   450                           
+   451                           
+   452                           ;main.c: 51:         PORTA = Rdata;
+   453  036B  087A               	movf	_Rdata,w
+   454  036C  1283               	bcf	3,5	;RP0=0, select bank0
+   455  036D  1303               	bcf	3,6	;RP1=0, select bank0
+   456  036E  0085               	movwf	5	;volatile
+   457  036F  2B6B               	goto	l84
+   458  0370  120A  118A  280C   	ljmp	start
+   459  0373                     __end_of_main:
+   460                           
+   461                           	psect	text1
+   462  0317                     __ptext1:	
+   463 ;; *************** function _UART_RXset *****************
+   464 ;; Defined at:
+   465 ;;		line 70 in file "./UARTcom.h"
+   466 ;; Parameters:    Size  Location     Type
+   467 ;;  ContSingRx      1    wreg     unsigned char 
+   468 ;;  InterruptEna    1    3[COMMON] unsigned char 
+   469 ;; Auto vars:     Size  Location     Type
+   470 ;;  ContSingRx      1    5[COMMON] unsigned char 
+   471 ;; Return value:  Size  Location     Type
+   472 ;;                  1    wreg      void 
+   473 ;; Registers used:
+   474 ;;		wreg, status,2, status,0
+   475 ;; Tracked objects:
+   476 ;;		On entry : 0/0
+   477 ;;		On exit  : 0/0
+   478 ;;		Unchanged: 0/0
+   479 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   480 ;;      Params:         1       0       0       0       0
+   481 ;;      Locals:         1       0       0       0       0
+   482 ;;      Temps:          1       0       0       0       0
+   483 ;;      Totals:         3       0       0       0       0
+   484 ;;Total ram usage:        3 bytes
+   485 ;; Hardware stack levels used: 1
+   486 ;; Hardware stack levels required when called: 2
+   487 ;; This function calls:
+   488 ;;		Nothing
+   489 ;; This function is called by:
+   490 ;;		_main
+   491 ;; This function uses a non-reentrant model
+   492 ;;
+   493                           
+   494  0317                     _UART_RXset:	
+   495                           ;psect for function _UART_RXset
+   496                           
+   497                           
+   498                           ;incstack = 0
+   499                           ; Regs used in _UART_RXset: [wreg+status,2+status,0]
+   500                           ;UART_RXset@ContSingRx stored from wreg
+   501  0317  00F5               	movwf	UART_RXset@ContSingRx
+   502  0318                     l1015:
+   503                           
+   504                           ;./UARTcom.h: 71:     if (ContSingRx == 0){
+   505  0318  0875               	movf	UART_RXset@ContSingRx,w
+   506  0319  1D03               	btfss	3,2
+   507  031A  2B1C               	goto	u581
+   508  031B  2B1D               	goto	u580
+   509  031C                     u581:
+   510  031C  2B24               	goto	l1019
+   511  031D                     u580:
+   512  031D                     l1017:
+   513                           
+   514                           ;./UARTcom.h: 72:         RCSTA =(RCSTA | (1 << 0x5)) & ~(1 << 0x4);
+   515  031D  1283               	bcf	3,5	;RP0=0, select bank0
+   516  031E  1303               	bcf	3,6	;RP1=0, select bank0
+   517  031F  0818               	movf	24,w	;volatile
+   518  0320  3820               	iorlw	32
+   519  0321  39EF               	andlw	239
+   520  0322  0098               	movwf	24	;volatile
+   521                           
+   522                           ;./UARTcom.h: 73:     }
+   523  0323  2B2C               	goto	l1023
+   524  0324                     l1019:
+   525  0324  0375               	decf	UART_RXset@ContSingRx,w
+   526  0325  1D03               	btfss	3,2
+   527  0326  2B28               	goto	u591
+   528  0327  2B29               	goto	u590
+   529  0328                     u591:
+   530  0328  2B2C               	goto	l1023
+   531  0329                     u590:
+   532  0329                     l1021:
+   533                           
+   534                           ;./UARTcom.h: 75:         RCSTA |= (1 << 0x4);
+   535  0329  1283               	bcf	3,5	;RP0=0, select bank0
+   536  032A  1303               	bcf	3,6	;RP1=0, select bank0
+   537  032B  1618               	bsf	24,4	;volatile
+   538  032C                     l1023:
+   539                           
+   540                           ;./UARTcom.h: 77:     if (InterruptEnable == 1){
+   541  032C  0373               	decf	UART_RXset@InterruptEnable,w
+   542  032D  1D03               	btfss	3,2
+   543  032E  2B30               	goto	u601
+   544  032F  2B31               	goto	u600
+   545  0330                     u601:
+   546  0330  2B39               	goto	l1029
+   547  0331                     u600:
+   548  0331                     l1025:
+   549                           
+   550                           ;./UARTcom.h: 78:         INTCON |= (1 << 0x7)|(1 << 0x6);
+   551  0331  30C0               	movlw	192
+   552  0332  00F4               	movwf	??_UART_RXset
+   553  0333  0874               	movf	??_UART_RXset,w
+   554  0334  048B               	iorwf	11,f	;volatile
+   555  0335                     l1027:
+   556                           
+   557                           ;./UARTcom.h: 79:         PIE1 |= (1<< 0x5);
+   558  0335  1683               	bsf	3,5	;RP0=1, select bank1
+   559  0336  1303               	bcf	3,6	;RP1=0, select bank1
+   560  0337  168C               	bsf	12,5	;volatile
+   561                           
+   562                           ;./UARTcom.h: 80:     }
+   563  0338  2B48               	goto	l52
+   564  0339                     l1029:
+   565  0339  0873               	movf	UART_RXset@InterruptEnable,w
+   566  033A  1D03               	btfss	3,2
+   567  033B  2B3D               	goto	u611
+   568  033C  2B3E               	goto	u610
+   569  033D                     u611:
+   570  033D  2B48               	goto	l52
+   571  033E                     u610:
+   572  033E                     l1031:
+   573                           
+   574                           ;./UARTcom.h: 82:         INTCON &= ~(1 << 0x7)& ~(1 << 0x6);
+   575  033E  303F               	movlw	63
+   576  033F  00F4               	movwf	??_UART_RXset
+   577  0340  0874               	movf	??_UART_RXset,w
+   578  0341  058B               	andwf	11,f	;volatile
+   579                           
+   580                           ;./UARTcom.h: 83:         PIE1 &= ~(1<< 0x5);
+   581  0342  30DF               	movlw	223
+   582  0343  00F4               	movwf	??_UART_RXset
+   583  0344  0874               	movf	??_UART_RXset,w
+   584  0345  1683               	bsf	3,5	;RP0=1, select bank1
+   585  0346  1303               	bcf	3,6	;RP1=0, select bank1
+   586  0347  058C               	andwf	12,f	;volatile
+   587  0348                     l52:
+   588  0348  0008               	return
+   589  0349                     __end_of_UART_RXset:
+   590                           
+   591                           	psect	text2
+   592  0014                     __ptext2:	
+   593 ;; *************** function _UART_BDset *****************
+   594 ;; Defined at:
+   595 ;;		line 21 in file "./UARTcom.h"
+   596 ;; Parameters:    Size  Location     Type
+   597 ;;  baud            2    8[BANK0 ] int 
+   598 ;;  SyncSel         1   10[BANK0 ] unsigned char 
+   599 ;;  BitBaudSize     1   11[BANK0 ] unsigned char 
+   600 ;;  HighSpeed       1   12[BANK0 ] unsigned char 
+   601 ;; Auto vars:     Size  Location     Type
+   602 ;;  PeriodBaud      2   16[BANK0 ] unsigned int 
+   603 ;;  PeriodBaud      2   14[BANK0 ] unsigned int 
+   604 ;;  PeriodBaud      2   20[BANK0 ] unsigned int 
+   605 ;;  PeriodBaud      2   18[BANK0 ] unsigned int 
+   606 ;;  PeriodBaud      2   22[BANK0 ] unsigned int 
+   607 ;; Return value:  Size  Location     Type
+   608 ;;                  1    wreg      void 
+   609 ;; Registers used:
+   610 ;;		wreg, status,2, status,0, pclath, cstack
+   611 ;; Tracked objects:
+   612 ;;		On entry : 0/0
+   613 ;;		On exit  : 0/0
+   614 ;;		Unchanged: 0/0
+   615 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   616 ;;      Params:         0       5       0       0       0
+   617 ;;      Locals:         0      14       0       0       0
+   618 ;;      Temps:          0       1       0       0       0
+   619 ;;      Totals:         0      20       0       0       0
+   620 ;;Total ram usage:       20 bytes
+   621 ;; Hardware stack levels used: 1
+   622 ;; Hardware stack levels required when called: 3
+   623 ;; This function calls:
+   624 ;;		___aldiv
+   625 ;; This function is called by:
+   626 ;;		_main
+   627 ;; This function uses a non-reentrant model
+   628 ;;
+   629                           
+   630  0014                     _UART_BDset:	
+   631                           ;psect for function _UART_BDset
+   632                           
+   633  0014                     l1121:	
+   634                           ;incstack = 0
+   635                           ; Regs used in _UART_BDset: [wreg+status,2+status,0+pclath+cstack]
+   636                           
+   637                           
+   638                           ;./UARTcom.h: 21: void UART_BDset(int baud, char SyncSel, char BitBaudSize, char HighSpe
+      +                          ed);./UARTcom.h: 22: {;./UARTcom.h: 23:     if(SyncSel == 0){
+   639  0014  1283               	bcf	3,5	;RP0=0, select bank0
+   640  0015  1303               	bcf	3,6	;RP1=0, select bank0
+   641  0016  082A               	movf	UART_BDset@SyncSel,w
+   642  0017  1D03               	btfss	3,2
+   643  0018  281A               	goto	u821
+   644  0019  281B               	goto	u820
+   645  001A                     u821:
+   646  001A  2999               	goto	l1187
+   647  001B                     u820:
+   648  001B                     l1123:
+   649                           
+   650                           ;./UARTcom.h: 24:         if((BitBaudSize == 1)&&(HighSpeed == 1)){
+   651  001B  032B               	decf	UART_BDset@BitBaudSize,w
+   652  001C  1D03               	btfss	3,2
+   653  001D  281F               	goto	u831
+   654  001E  2820               	goto	u830
+   655  001F                     u831:
+   656  001F  287D               	goto	l1139
+   657  0020                     u830:
+   658  0020                     l1125:
+   659  0020  032C               	decf	UART_BDset@HighSpeed,w
+   660  0021  1D03               	btfss	3,2
+   661  0022  2824               	goto	u841
+   662  0023  2825               	goto	u840
+   663  0024                     u841:
+   664  0024  287D               	goto	l1139
+   665  0025                     u840:
+   666  0025                     l1127:
+   667                           
+   668                           ;./UARTcom.h: 25:             BAUDCTL |= (1 << 0x3);
+   669  0025  1683               	bsf	3,5	;RP0=1, select bank3
+   670  0026  1703               	bsf	3,6	;RP1=1, select bank3
+   671  0027  1587               	bsf	7,3	;volatile
+   672  0028                     l1129:
+   673                           
+   674                           ;./UARTcom.h: 26:             TXSTA = (TXSTA | (1 << 0x2)) & ~(1 << 0x4);
+   675  0028  1683               	bsf	3,5	;RP0=1, select bank1
+   676  0029  1303               	bcf	3,6	;RP1=0, select bank1
+   677  002A  0818               	movf	24,w	;volatile
+   678  002B  3804               	iorlw	4
+   679  002C  39EF               	andlw	239
+   680  002D  0098               	movwf	24	;volatile
+   681  002E                     l1131:
+   682                           
+   683                           ;./UARTcom.h: 27:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (4)) 
+      +                          -1);
+   684  002E  1283               	bcf	3,5	;RP0=0, select bank0
+   685  002F  1303               	bcf	3,6	;RP1=0, select bank0
+   686  0030  0828               	movf	UART_BDset@baud,w
+   687  0031  00A0               	movwf	___aldiv@divisor
+   688  0032  0829               	movf	UART_BDset@baud+1,w
+   689  0033  00A1               	movwf	___aldiv@divisor+1
+   690  0034  3000               	movlw	0
+   691  0035  1BA1               	btfsc	___aldiv@divisor+1,7
+   692  0036  30FF               	movlw	255
+   693  0037  00A2               	movwf	___aldiv@divisor+2
+   694  0038  00A3               	movwf	___aldiv@divisor+3
+   695  0039  3000               	movlw	0
+   696  003A  00A7               	movwf	___aldiv@dividend+3
+   697  003B  307A               	movlw	122
+   698  003C  00A6               	movwf	___aldiv@dividend+2
+   699  003D  3012               	movlw	18
+   700  003E  00A5               	movwf	___aldiv@dividend+1
+   701  003F  3000               	movlw	0
+   702  0040  00A4               	movwf	___aldiv@dividend
+   703  0041  120A  118A  2202  120A  118A  	fcall	___aldiv
+   704  0046  1283               	bcf	3,5	;RP0=0, select bank0
+   705  0047  1303               	bcf	3,6	;RP1=0, select bank0
+   706  0048  0823               	movf	?___aldiv+3,w
+   707  0049  00BB               	movwf	_UART_BDset$738+3
+   708  004A  0822               	movf	?___aldiv+2,w
+   709  004B  00BA               	movwf	_UART_BDset$738+2
+   710  004C  0821               	movf	?___aldiv+1,w
+   711  004D  00B9               	movwf	_UART_BDset$738+1
+   712  004E  0820               	movf	?___aldiv,w
+   713  004F  00B8               	movwf	_UART_BDset$738
+   714  0050                     l1133:
+   715                           
+   716                           ;./UARTcom.h: 27:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (4)) 
+      +                          -1);
+   717  0050  3000               	movlw	0
+   718  0051  00A3               	movwf	___aldiv@divisor+3
+   719  0052  3000               	movlw	0
+   720  0053  00A2               	movwf	___aldiv@divisor+2
+   721  0054  3000               	movlw	0
+   722  0055  00A1               	movwf	___aldiv@divisor+1
+   723  0056  3004               	movlw	4
+   724  0057  00A0               	movwf	___aldiv@divisor
+   725  0058  083B               	movf	_UART_BDset$738+3,w
+   726  0059  00A7               	movwf	___aldiv@dividend+3
+   727  005A  083A               	movf	_UART_BDset$738+2,w
+   728  005B  00A6               	movwf	___aldiv@dividend+2
+   729  005C  0839               	movf	_UART_BDset$738+1,w
+   730  005D  00A5               	movwf	___aldiv@dividend+1
+   731  005E  0838               	movf	_UART_BDset$738,w
+   732  005F  00A4               	movwf	___aldiv@dividend
+   733  0060  120A  118A  2202  120A  118A  	fcall	___aldiv
+   734  0065  1283               	bcf	3,5	;RP0=0, select bank0
+   735  0066  1303               	bcf	3,6	;RP1=0, select bank0
+   736  0067  0820               	movf	?___aldiv,w
+   737  0068  3EFF               	addlw	255
+   738  0069  00B2               	movwf	UART_BDset@PeriodBaud
+   739  006A  0821               	movf	?___aldiv+1,w
+   740  006B  1803               	skipnc
+   741  006C  3E01               	addlw	1
+   742  006D  3EFF               	addlw	255
+   743  006E  00B3               	movwf	UART_BDset@PeriodBaud+1
+   744                           
+   745                           ;./UARTcom.h: 28:             SPBRGH = (uint8_t) (PeriodBaud >> 8);
+   746  006F  0833               	movf	UART_BDset@PeriodBaud+1,w
+   747  0070  1683               	bsf	3,5	;RP0=1, select bank1
+   748  0071  1303               	bcf	3,6	;RP1=0, select bank1
+   749  0072  009A               	movwf	26	;volatile
+   750  0073                     l1135:
+   751                           
+   752                           ;./UARTcom.h: 29:             SPBRG = (uint8_t) (PeriodBaud);
+   753  0073  1283               	bcf	3,5	;RP0=0, select bank0
+   754  0074  1303               	bcf	3,6	;RP1=0, select bank0
+   755  0075  0832               	movf	UART_BDset@PeriodBaud,w
+   756  0076  1683               	bsf	3,5	;RP0=1, select bank1
+   757  0077  1303               	bcf	3,6	;RP1=0, select bank1
+   758  0078  0099               	movwf	25	;volatile
+   759  0079                     l1137:
+   760                           
+   761                           ;./UARTcom.h: 30:             RCSTA |= (1<< 0x7);
+   762  0079  1283               	bcf	3,5	;RP0=0, select bank0
+   763  007A  1303               	bcf	3,6	;RP1=0, select bank0
+   764  007B  1798               	bsf	24,7	;volatile
+   765                           
+   766                           ;./UARTcom.h: 31:         }
+   767  007C  2A01               	goto	l43
+   768  007D                     l1139:
+   769  007D  032B               	decf	UART_BDset@BitBaudSize,w
+   770  007E  1D03               	btfss	3,2
+   771  007F  2881               	goto	u851
+   772  0080  2882               	goto	u850
+   773  0081                     u851:
+   774  0081  28DE               	goto	l1157
+   775  0082                     u850:
+   776  0082                     l1141:
+   777  0082  082C               	movf	UART_BDset@HighSpeed,w
+   778  0083  1D03               	btfss	3,2
+   779  0084  2886               	goto	u861
+   780  0085  2887               	goto	u860
+   781  0086                     u861:
+   782  0086  28DE               	goto	l1157
+   783  0087                     u860:
+   784  0087                     l1143:
+   785                           
+   786                           ;./UARTcom.h: 33:             BAUDCTL |= (1 << 0x3);
+   787  0087  1683               	bsf	3,5	;RP0=1, select bank3
+   788  0088  1703               	bsf	3,6	;RP1=1, select bank3
+   789  0089  1587               	bsf	7,3	;volatile
+   790  008A                     l1145:
+   791                           
+   792                           ;./UARTcom.h: 34:             TXSTA &= ~(1 << 0x2) & ~(1 << 0x4);
+   793  008A  30EB               	movlw	235
+   794  008B  1283               	bcf	3,5	;RP0=0, select bank0
+   795  008C  1303               	bcf	3,6	;RP1=0, select bank0
+   796  008D  00AD               	movwf	??_UART_BDset
+   797  008E  082D               	movf	??_UART_BDset,w
+   798  008F  1683               	bsf	3,5	;RP0=1, select bank1
+   799  0090  1303               	bcf	3,6	;RP1=0, select bank1
+   800  0091  0598               	andwf	24,f	;volatile
+   801  0092                     l1147:
+   802                           
+   803                           ;./UARTcom.h: 35:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (16))
+      +                           -1);
+   804  0092  1283               	bcf	3,5	;RP0=0, select bank0
+   805  0093  1303               	bcf	3,6	;RP1=0, select bank0
+   806  0094  0828               	movf	UART_BDset@baud,w
+   807  0095  00A0               	movwf	___aldiv@divisor
+   808  0096  0829               	movf	UART_BDset@baud+1,w
+   809  0097  00A1               	movwf	___aldiv@divisor+1
+   810  0098  3000               	movlw	0
+   811  0099  1BA1               	btfsc	___aldiv@divisor+1,7
+   812  009A  30FF               	movlw	255
+   813  009B  00A2               	movwf	___aldiv@divisor+2
+   814  009C  00A3               	movwf	___aldiv@divisor+3
+   815  009D  3000               	movlw	0
+   816  009E  00A7               	movwf	___aldiv@dividend+3
+   817  009F  307A               	movlw	122
+   818  00A0  00A6               	movwf	___aldiv@dividend+2
+   819  00A1  3012               	movlw	18
+   820  00A2  00A5               	movwf	___aldiv@dividend+1
+   821  00A3  3000               	movlw	0
+   822  00A4  00A4               	movwf	___aldiv@dividend
+   823  00A5  120A  118A  2202  120A  118A  	fcall	___aldiv
+   824  00AA  1283               	bcf	3,5	;RP0=0, select bank0
+   825  00AB  1303               	bcf	3,6	;RP1=0, select bank0
+   826  00AC  0823               	movf	?___aldiv+3,w
+   827  00AD  00BB               	movwf	_UART_BDset$738+3
+   828  00AE  0822               	movf	?___aldiv+2,w
+   829  00AF  00BA               	movwf	_UART_BDset$738+2
+   830  00B0  0821               	movf	?___aldiv+1,w
+   831  00B1  00B9               	movwf	_UART_BDset$738+1
+   832  00B2  0820               	movf	?___aldiv,w
+   833  00B3  00B8               	movwf	_UART_BDset$738
+   834  00B4                     l1149:
+   835                           
+   836                           ;./UARTcom.h: 35:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (16))
+      +                           -1);
+   837  00B4  3000               	movlw	0
+   838  00B5  00A3               	movwf	___aldiv@divisor+3
+   839  00B6  3000               	movlw	0
+   840  00B7  00A2               	movwf	___aldiv@divisor+2
+   841  00B8  3000               	movlw	0
+   842  00B9  00A1               	movwf	___aldiv@divisor+1
+   843  00BA  3010               	movlw	16
+   844  00BB  00A0               	movwf	___aldiv@divisor
+   845  00BC  083B               	movf	_UART_BDset$738+3,w
+   846  00BD  00A7               	movwf	___aldiv@dividend+3
+   847  00BE  083A               	movf	_UART_BDset$738+2,w
+   848  00BF  00A6               	movwf	___aldiv@dividend+2
+   849  00C0  0839               	movf	_UART_BDset$738+1,w
+   850  00C1  00A5               	movwf	___aldiv@dividend+1
+   851  00C2  0838               	movf	_UART_BDset$738,w
+   852  00C3  00A4               	movwf	___aldiv@dividend
+   853  00C4  120A  118A  2202  120A  118A  	fcall	___aldiv
+   854  00C9  1283               	bcf	3,5	;RP0=0, select bank0
+   855  00CA  1303               	bcf	3,6	;RP1=0, select bank0
+   856  00CB  0820               	movf	?___aldiv,w
+   857  00CC  3EFF               	addlw	255
+   858  00CD  00B4               	movwf	UART_BDset@PeriodBaud_88
+   859  00CE  0821               	movf	?___aldiv+1,w
+   860  00CF  1803               	skipnc
+   861  00D0  3E01               	addlw	1
+   862  00D1  3EFF               	addlw	255
+   863  00D2  00B5               	movwf	UART_BDset@PeriodBaud_88+1
+   864  00D3                     l1151:
+   865                           
+   866                           ;./UARTcom.h: 36:             SPBRGH = (uint8_t) (PeriodBaud >> 8);
+   867  00D3  0835               	movf	UART_BDset@PeriodBaud_88+1,w
+   868  00D4  1683               	bsf	3,5	;RP0=1, select bank1
+   869  00D5  1303               	bcf	3,6	;RP1=0, select bank1
+   870  00D6  009A               	movwf	26	;volatile
+   871  00D7                     l1153:
+   872                           
+   873                           ;./UARTcom.h: 37:             SPBRG = (uint8_t) (PeriodBaud);
+   874  00D7  1283               	bcf	3,5	;RP0=0, select bank0
+   875  00D8  1303               	bcf	3,6	;RP1=0, select bank0
+   876  00D9  0834               	movf	UART_BDset@PeriodBaud_88,w
+   877  00DA  1683               	bsf	3,5	;RP0=1, select bank1
+   878  00DB  1303               	bcf	3,6	;RP1=0, select bank1
+   879  00DC  0099               	movwf	25	;volatile
+   880  00DD  2879               	goto	l1137
+   881  00DE                     l1157:
+   882  00DE  082B               	movf	UART_BDset@BitBaudSize,w
+   883  00DF  1D03               	btfss	3,2
+   884  00E0  28E2               	goto	u871
+   885  00E1  28E3               	goto	u870
+   886  00E2                     u871:
+   887  00E2  293A               	goto	l1173
+   888  00E3                     u870:
+   889  00E3                     l1159:
+   890  00E3  032C               	decf	UART_BDset@HighSpeed,w
+   891  00E4  1D03               	btfss	3,2
+   892  00E5  28E7               	goto	u881
+   893  00E6  28E8               	goto	u880
+   894  00E7                     u881:
+   895  00E7  293A               	goto	l1173
+   896  00E8                     u880:
+   897  00E8                     l1161:
+   898                           
+   899                           ;./UARTcom.h: 41:             BAUDCTL &= ~(1 << 0x3);
+   900  00E8  30F7               	movlw	247
+   901  00E9  00AD               	movwf	??_UART_BDset
+   902  00EA  082D               	movf	??_UART_BDset,w
+   903  00EB  1683               	bsf	3,5	;RP0=1, select bank3
+   904  00EC  1703               	bsf	3,6	;RP1=1, select bank3
+   905  00ED  0587               	andwf	7,f	;volatile
+   906  00EE                     l1163:
+   907                           
+   908                           ;./UARTcom.h: 42:             TXSTA = (TXSTA | (1 << 0x2))& ~(1 << 0x4);
+   909  00EE  1683               	bsf	3,5	;RP0=1, select bank1
+   910  00EF  1303               	bcf	3,6	;RP1=0, select bank1
+   911  00F0  0818               	movf	24,w	;volatile
+   912  00F1  3804               	iorlw	4
+   913  00F2  39EF               	andlw	239
+   914  00F3  0098               	movwf	24	;volatile
+   915  00F4                     l1165:
+   916                           
+   917                           ;./UARTcom.h: 43:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (16))
+      +                           -1);
+   918  00F4  1283               	bcf	3,5	;RP0=0, select bank0
+   919  00F5  1303               	bcf	3,6	;RP1=0, select bank0
+   920  00F6  0828               	movf	UART_BDset@baud,w
+   921  00F7  00A0               	movwf	___aldiv@divisor
+   922  00F8  0829               	movf	UART_BDset@baud+1,w
+   923  00F9  00A1               	movwf	___aldiv@divisor+1
+   924  00FA  3000               	movlw	0
+   925  00FB  1BA1               	btfsc	___aldiv@divisor+1,7
+   926  00FC  30FF               	movlw	255
+   927  00FD  00A2               	movwf	___aldiv@divisor+2
+   928  00FE  00A3               	movwf	___aldiv@divisor+3
+   929  00FF  3000               	movlw	0
+   930  0100  00A7               	movwf	___aldiv@dividend+3
+   931  0101  307A               	movlw	122
+   932  0102  00A6               	movwf	___aldiv@dividend+2
+   933  0103  3012               	movlw	18
+   934  0104  00A5               	movwf	___aldiv@dividend+1
+   935  0105  3000               	movlw	0
+   936  0106  00A4               	movwf	___aldiv@dividend
+   937  0107  120A  118A  2202  120A  118A  	fcall	___aldiv
+   938  010C  1283               	bcf	3,5	;RP0=0, select bank0
+   939  010D  1303               	bcf	3,6	;RP1=0, select bank0
+   940  010E  0823               	movf	?___aldiv+3,w
+   941  010F  00BB               	movwf	_UART_BDset$738+3
+   942  0110  0822               	movf	?___aldiv+2,w
+   943  0111  00BA               	movwf	_UART_BDset$738+2
+   944  0112  0821               	movf	?___aldiv+1,w
+   945  0113  00B9               	movwf	_UART_BDset$738+1
+   946  0114  0820               	movf	?___aldiv,w
+   947  0115  00B8               	movwf	_UART_BDset$738
+   948  0116                     l1167:
+   949                           
+   950                           ;./UARTcom.h: 43:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (16))
+      +                           -1);
+   951  0116  3000               	movlw	0
+   952  0117  00A3               	movwf	___aldiv@divisor+3
+   953  0118  3000               	movlw	0
+   954  0119  00A2               	movwf	___aldiv@divisor+2
+   955  011A  3000               	movlw	0
+   956  011B  00A1               	movwf	___aldiv@divisor+1
+   957  011C  3010               	movlw	16
+   958  011D  00A0               	movwf	___aldiv@divisor
+   959  011E  083B               	movf	_UART_BDset$738+3,w
+   960  011F  00A7               	movwf	___aldiv@dividend+3
+   961  0120  083A               	movf	_UART_BDset$738+2,w
+   962  0121  00A6               	movwf	___aldiv@dividend+2
+   963  0122  0839               	movf	_UART_BDset$738+1,w
+   964  0123  00A5               	movwf	___aldiv@dividend+1
+   965  0124  0838               	movf	_UART_BDset$738,w
+   966  0125  00A4               	movwf	___aldiv@dividend
+   967  0126  120A  118A  2202  120A  118A  	fcall	___aldiv
+   968  012B  1283               	bcf	3,5	;RP0=0, select bank0
+   969  012C  1303               	bcf	3,6	;RP1=0, select bank0
+   970  012D  0820               	movf	?___aldiv,w
+   971  012E  3EFF               	addlw	255
+   972  012F  00AE               	movwf	UART_BDset@PeriodBaud_89
+   973  0130  0821               	movf	?___aldiv+1,w
+   974  0131  1803               	skipnc
+   975  0132  3E01               	addlw	1
+   976  0133  3EFF               	addlw	255
+   977  0134  00AF               	movwf	UART_BDset@PeriodBaud_89+1
+   978  0135                     l1169:
+   979                           
+   980                           ;./UARTcom.h: 44:             SPBRG = (uint8_t) (PeriodBaud);
+   981  0135  082E               	movf	UART_BDset@PeriodBaud_89,w
+   982  0136  1683               	bsf	3,5	;RP0=1, select bank1
+   983  0137  1303               	bcf	3,6	;RP1=0, select bank1
+   984  0138  0099               	movwf	25	;volatile
+   985  0139  2879               	goto	l1137
+   986  013A                     l1173:
+   987  013A  082B               	movf	UART_BDset@BitBaudSize,w
+   988  013B  1D03               	btfss	3,2
+   989  013C  293E               	goto	u891
+   990  013D  293F               	goto	u890
+   991  013E                     u891:
+   992  013E  2998               	goto	l33
+   993  013F                     u890:
+   994  013F                     l1175:
+   995  013F  082C               	movf	UART_BDset@HighSpeed,w
+   996  0140  1D03               	btfss	3,2
+   997  0141  2943               	goto	u901
+   998  0142  2944               	goto	u900
+   999  0143                     u901:
+  1000  0143  2998               	goto	l33
+  1001  0144                     u900:
+  1002  0144                     l1177:
+  1003                           
+  1004                           ;./UARTcom.h: 48:             BAUDCTL &= ~(1 << 0x3);
+  1005  0144  30F7               	movlw	247
+  1006  0145  00AD               	movwf	??_UART_BDset
+  1007  0146  082D               	movf	??_UART_BDset,w
+  1008  0147  1683               	bsf	3,5	;RP0=1, select bank3
+  1009  0148  1703               	bsf	3,6	;RP1=1, select bank3
+  1010  0149  0587               	andwf	7,f	;volatile
+  1011                           
+  1012                           ;./UARTcom.h: 49:             TXSTA &= ~(1 << 0x2) & ~(1 << 0x4);
+  1013  014A  30EB               	movlw	235
+  1014  014B  1283               	bcf	3,5	;RP0=0, select bank0
+  1015  014C  1303               	bcf	3,6	;RP1=0, select bank0
+  1016  014D  00AD               	movwf	??_UART_BDset
+  1017  014E  082D               	movf	??_UART_BDset,w
+  1018  014F  1683               	bsf	3,5	;RP0=1, select bank1
+  1019  0150  1303               	bcf	3,6	;RP1=0, select bank1
+  1020  0151  0598               	andwf	24,f	;volatile
+  1021  0152                     l1179:
+  1022                           
+  1023                           ;./UARTcom.h: 50:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (64))
+      +                           -1);
+  1024  0152  1283               	bcf	3,5	;RP0=0, select bank0
+  1025  0153  1303               	bcf	3,6	;RP1=0, select bank0
+  1026  0154  0828               	movf	UART_BDset@baud,w
+  1027  0155  00A0               	movwf	___aldiv@divisor
+  1028  0156  0829               	movf	UART_BDset@baud+1,w
+  1029  0157  00A1               	movwf	___aldiv@divisor+1
+  1030  0158  3000               	movlw	0
+  1031  0159  1BA1               	btfsc	___aldiv@divisor+1,7
+  1032  015A  30FF               	movlw	255
+  1033  015B  00A2               	movwf	___aldiv@divisor+2
+  1034  015C  00A3               	movwf	___aldiv@divisor+3
+  1035  015D  3000               	movlw	0
+  1036  015E  00A7               	movwf	___aldiv@dividend+3
+  1037  015F  307A               	movlw	122
+  1038  0160  00A6               	movwf	___aldiv@dividend+2
+  1039  0161  3012               	movlw	18
+  1040  0162  00A5               	movwf	___aldiv@dividend+1
+  1041  0163  3000               	movlw	0
+  1042  0164  00A4               	movwf	___aldiv@dividend
+  1043  0165  120A  118A  2202  120A  118A  	fcall	___aldiv
+  1044  016A  1283               	bcf	3,5	;RP0=0, select bank0
+  1045  016B  1303               	bcf	3,6	;RP1=0, select bank0
+  1046  016C  0823               	movf	?___aldiv+3,w
+  1047  016D  00BB               	movwf	_UART_BDset$738+3
+  1048  016E  0822               	movf	?___aldiv+2,w
+  1049  016F  00BA               	movwf	_UART_BDset$738+2
+  1050  0170  0821               	movf	?___aldiv+1,w
+  1051  0171  00B9               	movwf	_UART_BDset$738+1
+  1052  0172  0820               	movf	?___aldiv,w
+  1053  0173  00B8               	movwf	_UART_BDset$738
+  1054  0174                     l1181:
+  1055                           
+  1056                           ;./UARTcom.h: 50:             uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (64))
+      +                           -1);
+  1057  0174  3000               	movlw	0
+  1058  0175  00A3               	movwf	___aldiv@divisor+3
+  1059  0176  3000               	movlw	0
+  1060  0177  00A2               	movwf	___aldiv@divisor+2
+  1061  0178  3000               	movlw	0
+  1062  0179  00A1               	movwf	___aldiv@divisor+1
+  1063  017A  3040               	movlw	64
+  1064  017B  00A0               	movwf	___aldiv@divisor
+  1065  017C  083B               	movf	_UART_BDset$738+3,w
+  1066  017D  00A7               	movwf	___aldiv@dividend+3
+  1067  017E  083A               	movf	_UART_BDset$738+2,w
+  1068  017F  00A6               	movwf	___aldiv@dividend+2
+  1069  0180  0839               	movf	_UART_BDset$738+1,w
+  1070  0181  00A5               	movwf	___aldiv@dividend+1
+  1071  0182  0838               	movf	_UART_BDset$738,w
+  1072  0183  00A4               	movwf	___aldiv@dividend
+  1073  0184  120A  118A  2202  120A  118A  	fcall	___aldiv
+  1074  0189  1283               	bcf	3,5	;RP0=0, select bank0
+  1075  018A  1303               	bcf	3,6	;RP1=0, select bank0
+  1076  018B  0820               	movf	?___aldiv,w
+  1077  018C  3EFF               	addlw	255
+  1078  018D  00B0               	movwf	UART_BDset@PeriodBaud_90
+  1079  018E  0821               	movf	?___aldiv+1,w
+  1080  018F  1803               	skipnc
+  1081  0190  3E01               	addlw	1
+  1082  0191  3EFF               	addlw	255
+  1083  0192  00B1               	movwf	UART_BDset@PeriodBaud_90+1
+  1084  0193                     l1183:
+  1085                           
+  1086                           ;./UARTcom.h: 51:             SPBRG = (uint8_t) (PeriodBaud);
+  1087  0193  0830               	movf	UART_BDset@PeriodBaud_90,w
+  1088  0194  1683               	bsf	3,5	;RP0=1, select bank1
+  1089  0195  1303               	bcf	3,6	;RP1=0, select bank1
+  1090  0196  0099               	movwf	25	;volatile
+  1091  0197  2879               	goto	l1137
+  1092  0198                     l33:
+  1093                           
+  1094                           ;./UARTcom.h: 54:     }
+  1095  0198  2A01               	goto	l43
+  1096  0199                     l1187:
+  1097  0199  032A               	decf	UART_BDset@SyncSel,w
+  1098  019A  1D03               	btfss	3,2
+  1099  019B  299D               	goto	u911
+  1100  019C  299E               	goto	u910
+  1101  019D                     u911:
+  1102  019D  2A01               	goto	l43
+  1103  019E                     u910:
+  1104  019E                     l1189:
+  1105                           
+  1106                           ;./UARTcom.h: 56:         if (BitBaudSize == 1){
+  1107  019E  032B               	decf	UART_BDset@BitBaudSize,w
+  1108  019F  1D03               	btfss	3,2
+  1109  01A0  29A2               	goto	u921
+  1110  01A1  29A3               	goto	u920
+  1111  01A2                     u921:
+  1112  01A2  29A7               	goto	l1193
+  1113  01A3                     u920:
+  1114  01A3                     l1191:
+  1115                           
+  1116                           ;./UARTcom.h: 57:             BAUDCTL |= (1 << 0x3);
+  1117  01A3  1683               	bsf	3,5	;RP0=1, select bank3
+  1118  01A4  1703               	bsf	3,6	;RP1=1, select bank3
+  1119  01A5  1587               	bsf	7,3	;volatile
+  1120                           
+  1121                           ;./UARTcom.h: 58:         }
+  1122  01A6  29AD               	goto	l42
+  1123  01A7                     l1193:
+  1124                           
+  1125                           ;./UARTcom.h: 60:             BAUDCTL &= ~(1 << 0x3);
+  1126  01A7  30F7               	movlw	247
+  1127  01A8  00AD               	movwf	??_UART_BDset
+  1128  01A9  082D               	movf	??_UART_BDset,w
+  1129  01AA  1683               	bsf	3,5	;RP0=1, select bank3
+  1130  01AB  1703               	bsf	3,6	;RP1=1, select bank3
+  1131  01AC  0587               	andwf	7,f	;volatile
+  1132  01AD                     l42:	
+  1133                           ;./UARTcom.h: 61:         }
+  1134                           
+  1135                           
+  1136                           ;./UARTcom.h: 62:         TXSTA &= ~(1 << 0x4);
+  1137  01AD  30EF               	movlw	239
+  1138  01AE  1283               	bcf	3,5	;RP0=0, select bank0
+  1139  01AF  1303               	bcf	3,6	;RP1=0, select bank0
+  1140  01B0  00AD               	movwf	??_UART_BDset
+  1141  01B1  082D               	movf	??_UART_BDset,w
+  1142  01B2  1683               	bsf	3,5	;RP0=1, select bank1
+  1143  01B3  1303               	bcf	3,6	;RP1=0, select bank1
+  1144  01B4  0598               	andwf	24,f	;volatile
+  1145  01B5                     l1195:
+  1146                           
+  1147                           ;./UARTcom.h: 63:         uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (4)) -1);
+  1148  01B5  1283               	bcf	3,5	;RP0=0, select bank0
+  1149  01B6  1303               	bcf	3,6	;RP1=0, select bank0
+  1150  01B7  0828               	movf	UART_BDset@baud,w
+  1151  01B8  00A0               	movwf	___aldiv@divisor
+  1152  01B9  0829               	movf	UART_BDset@baud+1,w
+  1153  01BA  00A1               	movwf	___aldiv@divisor+1
+  1154  01BB  3000               	movlw	0
+  1155  01BC  1BA1               	btfsc	___aldiv@divisor+1,7
+  1156  01BD  30FF               	movlw	255
+  1157  01BE  00A2               	movwf	___aldiv@divisor+2
+  1158  01BF  00A3               	movwf	___aldiv@divisor+3
+  1159  01C0  3000               	movlw	0
+  1160  01C1  00A7               	movwf	___aldiv@dividend+3
+  1161  01C2  307A               	movlw	122
+  1162  01C3  00A6               	movwf	___aldiv@dividend+2
+  1163  01C4  3012               	movlw	18
+  1164  01C5  00A5               	movwf	___aldiv@dividend+1
+  1165  01C6  3000               	movlw	0
+  1166  01C7  00A4               	movwf	___aldiv@dividend
+  1167  01C8  120A  118A  2202  120A  118A  	fcall	___aldiv
+  1168  01CD  1283               	bcf	3,5	;RP0=0, select bank0
+  1169  01CE  1303               	bcf	3,6	;RP1=0, select bank0
+  1170  01CF  0823               	movf	?___aldiv+3,w
+  1171  01D0  00BB               	movwf	_UART_BDset$738+3
+  1172  01D1  0822               	movf	?___aldiv+2,w
+  1173  01D2  00BA               	movwf	_UART_BDset$738+2
+  1174  01D3  0821               	movf	?___aldiv+1,w
+  1175  01D4  00B9               	movwf	_UART_BDset$738+1
+  1176  01D5  0820               	movf	?___aldiv,w
+  1177  01D6  00B8               	movwf	_UART_BDset$738
+  1178  01D7                     l1197:
+  1179                           
+  1180                           ;./UARTcom.h: 63:         uint16_t PeriodBaud = (uint16_t) (((8000000/(baud))/ (4)) -1);
+  1181  01D7  3000               	movlw	0
+  1182  01D8  00A3               	movwf	___aldiv@divisor+3
+  1183  01D9  3000               	movlw	0
+  1184  01DA  00A2               	movwf	___aldiv@divisor+2
+  1185  01DB  3000               	movlw	0
+  1186  01DC  00A1               	movwf	___aldiv@divisor+1
+  1187  01DD  3004               	movlw	4
+  1188  01DE  00A0               	movwf	___aldiv@divisor
+  1189  01DF  083B               	movf	_UART_BDset$738+3,w
+  1190  01E0  00A7               	movwf	___aldiv@dividend+3
+  1191  01E1  083A               	movf	_UART_BDset$738+2,w
+  1192  01E2  00A6               	movwf	___aldiv@dividend+2
+  1193  01E3  0839               	movf	_UART_BDset$738+1,w
+  1194  01E4  00A5               	movwf	___aldiv@dividend+1
+  1195  01E5  0838               	movf	_UART_BDset$738,w
+  1196  01E6  00A4               	movwf	___aldiv@dividend
+  1197  01E7  120A  118A  2202  120A  118A  	fcall	___aldiv
+  1198  01EC  1283               	bcf	3,5	;RP0=0, select bank0
+  1199  01ED  1303               	bcf	3,6	;RP1=0, select bank0
+  1200  01EE  0820               	movf	?___aldiv,w
+  1201  01EF  3EFF               	addlw	255
+  1202  01F0  00B6               	movwf	UART_BDset@PeriodBaud_91
+  1203  01F1  0821               	movf	?___aldiv+1,w
+  1204  01F2  1803               	skipnc
+  1205  01F3  3E01               	addlw	1
+  1206  01F4  3EFF               	addlw	255
+  1207  01F5  00B7               	movwf	UART_BDset@PeriodBaud_91+1
+  1208  01F6                     l1199:
+  1209                           
+  1210                           ;./UARTcom.h: 64:         SPBRGH = (uint8_t) (PeriodBaud >> 8);
+  1211  01F6  0837               	movf	UART_BDset@PeriodBaud_91+1,w
+  1212  01F7  1683               	bsf	3,5	;RP0=1, select bank1
+  1213  01F8  1303               	bcf	3,6	;RP1=0, select bank1
+  1214  01F9  009A               	movwf	26	;volatile
+  1215  01FA                     l1201:
+  1216                           
+  1217                           ;./UARTcom.h: 65:         SPBRG = (uint8_t) (PeriodBaud);
+  1218  01FA  1283               	bcf	3,5	;RP0=0, select bank0
+  1219  01FB  1303               	bcf	3,6	;RP1=0, select bank0
+  1220  01FC  0836               	movf	UART_BDset@PeriodBaud_91,w
+  1221  01FD  1683               	bsf	3,5	;RP0=1, select bank1
+  1222  01FE  1303               	bcf	3,6	;RP1=0, select bank1
+  1223  01FF  0099               	movwf	25	;volatile
+  1224  0200  2879               	goto	l1137
+  1225  0201                     l43:
+  1226  0201  0008               	return
+  1227  0202                     __end_of_UART_BDset:
+  1228                           
+  1229                           	psect	text3
+  1230  0202                     __ptext3:	
+  1231 ;; *************** function ___aldiv *****************
+  1232 ;; Defined at:
+  1233 ;;		line 5 in file "D:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\aldiv.c"
+  1234 ;; Parameters:    Size  Location     Type
+  1235 ;;  divisor         4    0[BANK0 ] long 
+  1236 ;;  dividend        4    4[BANK0 ] long 
+  1237 ;; Auto vars:     Size  Location     Type
+  1238 ;;  quotient        4    6[COMMON] long 
+  1239 ;;  sign            1    5[COMMON] unsigned char 
+  1240 ;;  counter         1    4[COMMON] unsigned char 
+  1241 ;; Return value:  Size  Location     Type
+  1242 ;;                  4    0[BANK0 ] long 
+  1243 ;; Registers used:
+  1244 ;;		wreg, status,2, status,0
+  1245 ;; Tracked objects:
+  1246 ;;		On entry : 0/0
+  1247 ;;		On exit  : 0/0
+  1248 ;;		Unchanged: 0/0
+  1249 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1250 ;;      Params:         0       8       0       0       0
+  1251 ;;      Locals:         6       0       0       0       0
+  1252 ;;      Temps:          1       0       0       0       0
+  1253 ;;      Totals:         7       8       0       0       0
+  1254 ;;Total ram usage:       15 bytes
+  1255 ;; Hardware stack levels used: 1
+  1256 ;; Hardware stack levels required when called: 2
+  1257 ;; This function calls:
+  1258 ;;		Nothing
+  1259 ;; This function is called by:
+  1260 ;;		_UART_BDset
+  1261 ;; This function uses a non-reentrant model
+  1262 ;;
+  1263                           
+  1264  0202                     ___aldiv:	
+  1265                           ;psect for function ___aldiv
+  1266                           
+  1267  0202                     l1081:	
+  1268                           ;incstack = 0
+  1269                           ; Regs used in ___aldiv: [wreg+status,2+status,0]
+  1270                           
+  1271  0202  01F5               	clrf	___aldiv@sign
+  1272  0203                     l1083:
+  1273  0203  1283               	bcf	3,5	;RP0=0, select bank0
+  1274  0204  1303               	bcf	3,6	;RP1=0, select bank0
+  1275  0205  1FA3               	btfss	___aldiv@divisor+3,7
+  1276  0206  2A08               	goto	u721
+  1277  0207  2A09               	goto	u720
+  1278  0208                     u721:
+  1279  0208  2A16               	goto	l246
+  1280  0209                     u720:
+  1281  0209                     l1085:
+  1282  0209  09A0               	comf	___aldiv@divisor,f
+  1283  020A  09A1               	comf	___aldiv@divisor+1,f
+  1284  020B  09A2               	comf	___aldiv@divisor+2,f
+  1285  020C  09A3               	comf	___aldiv@divisor+3,f
+  1286  020D  0AA0               	incf	___aldiv@divisor,f
+  1287  020E  1903               	skipnz
+  1288  020F  0AA1               	incf	___aldiv@divisor+1,f
+  1289  0210  1903               	skipnz
+  1290  0211  0AA2               	incf	___aldiv@divisor+2,f
+  1291  0212  1903               	skipnz
+  1292  0213  0AA3               	incf	___aldiv@divisor+3,f
+  1293  0214  01F5               	clrf	___aldiv@sign
+  1294  0215  0AF5               	incf	___aldiv@sign,f
+  1295  0216                     l246:
+  1296  0216  1FA7               	btfss	___aldiv@dividend+3,7
+  1297  0217  2A19               	goto	u731
+  1298  0218  2A1A               	goto	u730
+  1299  0219                     u731:
+  1300  0219  2A29               	goto	l1091
+  1301  021A                     u730:
+  1302  021A                     l1087:
+  1303  021A  09A4               	comf	___aldiv@dividend,f
+  1304  021B  09A5               	comf	___aldiv@dividend+1,f
+  1305  021C  09A6               	comf	___aldiv@dividend+2,f
+  1306  021D  09A7               	comf	___aldiv@dividend+3,f
+  1307  021E  0AA4               	incf	___aldiv@dividend,f
+  1308  021F  1903               	skipnz
+  1309  0220  0AA5               	incf	___aldiv@dividend+1,f
+  1310  0221  1903               	skipnz
+  1311  0222  0AA6               	incf	___aldiv@dividend+2,f
+  1312  0223  1903               	skipnz
+  1313  0224  0AA7               	incf	___aldiv@dividend+3,f
+  1314  0225                     l1089:
+  1315  0225  3001               	movlw	1
+  1316  0226  00F3               	movwf	??___aldiv
+  1317  0227  0873               	movf	??___aldiv,w
+  1318  0228  06F5               	xorwf	___aldiv@sign,f
+  1319  0229                     l1091:
+  1320  0229  3000               	movlw	0
+  1321  022A  00F9               	movwf	___aldiv@quotient+3
+  1322  022B  3000               	movlw	0
+  1323  022C  00F8               	movwf	___aldiv@quotient+2
+  1324  022D  3000               	movlw	0
+  1325  022E  00F7               	movwf	___aldiv@quotient+1
+  1326  022F  3000               	movlw	0
+  1327  0230  00F6               	movwf	___aldiv@quotient
+  1328  0231                     l1093:
+  1329  0231  0823               	movf	___aldiv@divisor+3,w
+  1330  0232  0422               	iorwf	___aldiv@divisor+2,w
+  1331  0233  0421               	iorwf	___aldiv@divisor+1,w
+  1332  0234  0420               	iorwf	___aldiv@divisor,w
+  1333  0235  1903               	skipnz
+  1334  0236  2A38               	goto	u741
+  1335  0237  2A39               	goto	u740
+  1336  0238                     u741:
+  1337  0238  2A86               	goto	l1113
+  1338  0239                     u740:
+  1339  0239                     l1095:
+  1340  0239  01F4               	clrf	___aldiv@counter
+  1341  023A  0AF4               	incf	___aldiv@counter,f
+  1342  023B  2A49               	goto	l1099
+  1343  023C                     l1097:
+  1344  023C  3001               	movlw	1
+  1345  023D  00F3               	movwf	??___aldiv
+  1346  023E                     u755:
+  1347  023E  1003               	clrc
+  1348  023F  0DA0               	rlf	___aldiv@divisor,f
+  1349  0240  0DA1               	rlf	___aldiv@divisor+1,f
+  1350  0241  0DA2               	rlf	___aldiv@divisor+2,f
+  1351  0242  0DA3               	rlf	___aldiv@divisor+3,f
+  1352  0243  0BF3               	decfsz	??___aldiv,f
+  1353  0244  2A3E               	goto	u755
+  1354  0245  3001               	movlw	1
+  1355  0246  00F3               	movwf	??___aldiv
+  1356  0247  0873               	movf	??___aldiv,w
+  1357  0248  07F4               	addwf	___aldiv@counter,f
+  1358  0249                     l1099:
+  1359  0249  1FA3               	btfss	___aldiv@divisor+3,7
+  1360  024A  2A4C               	goto	u761
+  1361  024B  2A4D               	goto	u760
+  1362  024C                     u761:
+  1363  024C  2A3C               	goto	l1097
+  1364  024D                     u760:
+  1365  024D                     l1101:
+  1366  024D  3001               	movlw	1
+  1367  024E  00F3               	movwf	??___aldiv
+  1368  024F                     u775:
+  1369  024F  1003               	clrc
+  1370  0250  0DF6               	rlf	___aldiv@quotient,f
+  1371  0251  0DF7               	rlf	___aldiv@quotient+1,f
+  1372  0252  0DF8               	rlf	___aldiv@quotient+2,f
+  1373  0253  0DF9               	rlf	___aldiv@quotient+3,f
+  1374  0254  0BF3               	decfsz	??___aldiv,f
+  1375  0255  2A4F               	goto	u775
+  1376  0256                     l1103:
+  1377  0256  0823               	movf	___aldiv@divisor+3,w
+  1378  0257  0227               	subwf	___aldiv@dividend+3,w
+  1379  0258  1D03               	skipz
+  1380  0259  2A64               	goto	u785
+  1381  025A  0822               	movf	___aldiv@divisor+2,w
+  1382  025B  0226               	subwf	___aldiv@dividend+2,w
+  1383  025C  1D03               	skipz
+  1384  025D  2A64               	goto	u785
+  1385  025E  0821               	movf	___aldiv@divisor+1,w
+  1386  025F  0225               	subwf	___aldiv@dividend+1,w
+  1387  0260  1D03               	skipz
+  1388  0261  2A64               	goto	u785
+  1389  0262  0820               	movf	___aldiv@divisor,w
+  1390  0263  0224               	subwf	___aldiv@dividend,w
+  1391  0264                     u785:
+  1392  0264  1C03               	skipc
+  1393  0265  2A67               	goto	u781
+  1394  0266  2A68               	goto	u780
+  1395  0267                     u781:
+  1396  0267  2A77               	goto	l1109
+  1397  0268                     u780:
+  1398  0268                     l1105:
+  1399  0268  0820               	movf	___aldiv@divisor,w
+  1400  0269  02A4               	subwf	___aldiv@dividend,f
+  1401  026A  0821               	movf	___aldiv@divisor+1,w
+  1402  026B  1C03               	skipc
+  1403  026C  0F21               	incfsz	___aldiv@divisor+1,w
+  1404  026D  02A5               	subwf	___aldiv@dividend+1,f
+  1405  026E  0822               	movf	___aldiv@divisor+2,w
+  1406  026F  1C03               	skipc
+  1407  0270  0F22               	incfsz	___aldiv@divisor+2,w
+  1408  0271  02A6               	subwf	___aldiv@dividend+2,f
+  1409  0272  0823               	movf	___aldiv@divisor+3,w
+  1410  0273  1C03               	skipc
+  1411  0274  0F23               	incfsz	___aldiv@divisor+3,w
+  1412  0275  02A7               	subwf	___aldiv@dividend+3,f
+  1413  0276                     l1107:
+  1414  0276  1476               	bsf	___aldiv@quotient,0
+  1415  0277                     l1109:
+  1416  0277  3001               	movlw	1
+  1417  0278                     u795:
+  1418  0278  1003               	clrc
+  1419  0279  0CA3               	rrf	___aldiv@divisor+3,f
+  1420  027A  0CA2               	rrf	___aldiv@divisor+2,f
+  1421  027B  0CA1               	rrf	___aldiv@divisor+1,f
+  1422  027C  0CA0               	rrf	___aldiv@divisor,f
+  1423  027D  3EFF               	addlw	-1
+  1424  027E  1D03               	skipz
+  1425  027F  2A78               	goto	u795
+  1426  0280                     l1111:
+  1427  0280  3001               	movlw	1
+  1428  0281  02F4               	subwf	___aldiv@counter,f
+  1429  0282  1D03               	btfss	3,2
+  1430  0283  2A85               	goto	u801
+  1431  0284  2A86               	goto	u800
+  1432  0285                     u801:
+  1433  0285  2A4D               	goto	l1101
+  1434  0286                     u800:
+  1435  0286                     l1113:
+  1436  0286  0875               	movf	___aldiv@sign,w
+  1437  0287  1903               	btfsc	3,2
+  1438  0288  2A8A               	goto	u811
+  1439  0289  2A8B               	goto	u810
+  1440  028A                     u811:
+  1441  028A  2A96               	goto	l1117
+  1442  028B                     u810:
+  1443  028B                     l1115:
+  1444  028B  09F6               	comf	___aldiv@quotient,f
+  1445  028C  09F7               	comf	___aldiv@quotient+1,f
+  1446  028D  09F8               	comf	___aldiv@quotient+2,f
+  1447  028E  09F9               	comf	___aldiv@quotient+3,f
+  1448  028F  0AF6               	incf	___aldiv@quotient,f
+  1449  0290  1903               	skipnz
+  1450  0291  0AF7               	incf	___aldiv@quotient+1,f
+  1451  0292  1903               	skipnz
+  1452  0293  0AF8               	incf	___aldiv@quotient+2,f
+  1453  0294  1903               	skipnz
+  1454  0295  0AF9               	incf	___aldiv@quotient+3,f
+  1455  0296                     l1117:
+  1456  0296  0879               	movf	___aldiv@quotient+3,w
+  1457  0297  00A3               	movwf	?___aldiv+3
+  1458  0298  0878               	movf	___aldiv@quotient+2,w
+  1459  0299  00A2               	movwf	?___aldiv+2
+  1460  029A  0877               	movf	___aldiv@quotient+1,w
+  1461  029B  00A1               	movwf	?___aldiv+1
+  1462  029C  0876               	movf	___aldiv@quotient,w
+  1463  029D  00A0               	movwf	?___aldiv
+  1464  029E                     l256:
+  1465  029E  0008               	return
+  1466  029F                     __end_of___aldiv:
+  1467                           
+  1468                           	psect	text4
+  1469  029F                     __ptext4:	
+  1470 ;; *************** function _OSC_set *****************
+  1471 ;; Defined at:
+  1472 ;;		line 24 in file "./PICOSC.h"
+  1473 ;; Parameters:    Size  Location     Type
+  1474 ;;  FreqClockSel    1    wreg     unsigned char 
+  1475 ;;  InternalOsc     1    3[COMMON] unsigned char 
+  1476 ;; Auto vars:     Size  Location     Type
+  1477 ;;  FreqClockSel    1    5[COMMON] unsigned char 
+  1478 ;; Return value:  Size  Location     Type
+  1479 ;;                  1    wreg      void 
+  1480 ;; Registers used:
+  1481 ;;		wreg, status,2, status,0
+  1482 ;; Tracked objects:
+  1483 ;;		On entry : 0/0
+  1484 ;;		On exit  : 0/0
+  1485 ;;		Unchanged: 0/0
+  1486 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1487 ;;      Params:         1       0       0       0       0
+  1488 ;;      Locals:         1       0       0       0       0
+  1489 ;;      Temps:          1       0       0       0       0
+  1490 ;;      Totals:         3       0       0       0       0
+  1491 ;;Total ram usage:        3 bytes
+  1492 ;; Hardware stack levels used: 1
+  1493 ;; Hardware stack levels required when called: 2
+  1494 ;; This function calls:
+  1495 ;;		Nothing
+  1496 ;; This function is called by:
+  1497 ;;		_main
+  1498 ;; This function uses a non-reentrant model
+  1499 ;;
+  1500                           
+  1501  029F                     _OSC_set:	
+  1502                           ;psect for function _OSC_set
+  1503                           
+  1504                           
+  1505                           ;incstack = 0
+  1506                           ; Regs used in _OSC_set: [wreg+status,2+status,0]
+  1507                           ;OSC_set@FreqClockSelect stored from wreg
+  1508  029F  00F5               	movwf	OSC_set@FreqClockSelect
+  1509  02A0                     l1035:
+  1510                           
+  1511                           ;./PICOSC.h: 25:     if (FreqClockSelect == 7){
+  1512  02A0  3007               	movlw	7
+  1513  02A1  0675               	xorwf	OSC_set@FreqClockSelect,w
+  1514  02A2  1D03               	btfss	3,2
+  1515  02A3  2AA5               	goto	u621
+  1516  02A4  2AA6               	goto	u620
+  1517  02A5                     u621:
+  1518  02A5  2AAB               	goto	l1039
+  1519  02A6                     u620:
+  1520  02A6                     l1037:
+  1521                           
+  1522                           ;./PICOSC.h: 26:         OSCCONbits.IRCF = 7;
+  1523  02A6  3070               	movlw	112
+  1524  02A7  1683               	bsf	3,5	;RP0=1, select bank1
+  1525  02A8  1303               	bcf	3,6	;RP1=0, select bank1
+  1526  02A9  048F               	iorwf	15,f	;volatile
+  1527                           
+  1528                           ;./PICOSC.h: 27:     }
+  1529  02AA  2B02               	goto	l60
+  1530  02AB                     l1039:
+  1531  02AB  3006               	movlw	6
+  1532  02AC  0675               	xorwf	OSC_set@FreqClockSelect,w
+  1533  02AD  1D03               	btfss	3,2
+  1534  02AE  2AB0               	goto	u631
+  1535  02AF  2AB1               	goto	u630
+  1536  02B0                     u631:
+  1537  02B0  2AB8               	goto	l1043
+  1538  02B1                     u630:
+  1539  02B1                     l1041:
+  1540                           
+  1541                           ;./PICOSC.h: 29:         OSCCONbits.IRCF = 6;
+  1542  02B1  1683               	bsf	3,5	;RP0=1, select bank1
+  1543  02B2  1303               	bcf	3,6	;RP1=0, select bank1
+  1544  02B3  080F               	movf	15,w	;volatile
+  1545  02B4  398F               	andlw	-113
+  1546  02B5  3860               	iorlw	96
+  1547  02B6  008F               	movwf	15	;volatile
+  1548                           
+  1549                           ;./PICOSC.h: 30:     }
+  1550  02B7  2B02               	goto	l60
+  1551  02B8                     l1043:
+  1552  02B8  3005               	movlw	5
+  1553  02B9  0675               	xorwf	OSC_set@FreqClockSelect,w
+  1554  02BA  1D03               	btfss	3,2
+  1555  02BB  2ABD               	goto	u641
+  1556  02BC  2ABE               	goto	u640
+  1557  02BD                     u641:
+  1558  02BD  2AC5               	goto	l1047
+  1559  02BE                     u640:
+  1560  02BE                     l1045:
+  1561                           
+  1562                           ;./PICOSC.h: 32:         OSCCONbits.IRCF = 5;
+  1563  02BE  1683               	bsf	3,5	;RP0=1, select bank1
+  1564  02BF  1303               	bcf	3,6	;RP1=0, select bank1
+  1565  02C0  080F               	movf	15,w	;volatile
+  1566  02C1  398F               	andlw	-113
+  1567  02C2  3850               	iorlw	80
+  1568  02C3  008F               	movwf	15	;volatile
+  1569                           
+  1570                           ;./PICOSC.h: 33:     }
+  1571  02C4  2B02               	goto	l60
+  1572  02C5                     l1047:
+  1573  02C5  3004               	movlw	4
+  1574  02C6  0675               	xorwf	OSC_set@FreqClockSelect,w
+  1575  02C7  1D03               	btfss	3,2
+  1576  02C8  2ACA               	goto	u651
+  1577  02C9  2ACB               	goto	u650
+  1578  02CA                     u651:
+  1579  02CA  2AD2               	goto	l1051
+  1580  02CB                     u650:
+  1581  02CB                     l1049:
+  1582                           
+  1583                           ;./PICOSC.h: 35:         OSCCONbits.IRCF = 4;
+  1584  02CB  1683               	bsf	3,5	;RP0=1, select bank1
+  1585  02CC  1303               	bcf	3,6	;RP1=0, select bank1
+  1586  02CD  080F               	movf	15,w	;volatile
+  1587  02CE  398F               	andlw	-113
+  1588  02CF  3840               	iorlw	64
+  1589  02D0  008F               	movwf	15	;volatile
+  1590                           
+  1591                           ;./PICOSC.h: 36:     }
+  1592  02D1  2B02               	goto	l60
+  1593  02D2                     l1051:
+  1594  02D2  3003               	movlw	3
+  1595  02D3  0675               	xorwf	OSC_set@FreqClockSelect,w
+  1596  02D4  1D03               	btfss	3,2
+  1597  02D5  2AD7               	goto	u661
+  1598  02D6  2AD8               	goto	u660
+  1599  02D7                     u661:
+  1600  02D7  2ADF               	goto	l1055
+  1601  02D8                     u660:
+  1602  02D8                     l1053:
+  1603                           
+  1604                           ;./PICOSC.h: 38:         OSCCONbits.IRCF = 3;
+  1605  02D8  1683               	bsf	3,5	;RP0=1, select bank1
+  1606  02D9  1303               	bcf	3,6	;RP1=0, select bank1
+  1607  02DA  080F               	movf	15,w	;volatile
+  1608  02DB  398F               	andlw	-113
+  1609  02DC  3830               	iorlw	48
+  1610  02DD  008F               	movwf	15	;volatile
+  1611                           
+  1612                           ;./PICOSC.h: 39:     }
+  1613  02DE  2B02               	goto	l60
+  1614  02DF                     l1055:
+  1615  02DF  3002               	movlw	2
+  1616  02E0  0675               	xorwf	OSC_set@FreqClockSelect,w
+  1617  02E1  1D03               	btfss	3,2
+  1618  02E2  2AE4               	goto	u671
+  1619  02E3  2AE5               	goto	u670
+  1620  02E4                     u671:
+  1621  02E4  2AEC               	goto	l1059
+  1622  02E5                     u670:
+  1623  02E5                     l1057:
+  1624                           
+  1625                           ;./PICOSC.h: 41:         OSCCONbits.IRCF = 2;
+  1626  02E5  1683               	bsf	3,5	;RP0=1, select bank1
+  1627  02E6  1303               	bcf	3,6	;RP1=0, select bank1
+  1628  02E7  080F               	movf	15,w	;volatile
+  1629  02E8  398F               	andlw	-113
+  1630  02E9  3820               	iorlw	32
+  1631  02EA  008F               	movwf	15	;volatile
+  1632                           
+  1633                           ;./PICOSC.h: 42:     }
+  1634  02EB  2B02               	goto	l60
+  1635  02EC                     l1059:
+  1636  02EC  0375               	decf	OSC_set@FreqClockSelect,w
+  1637  02ED  1D03               	btfss	3,2
+  1638  02EE  2AF0               	goto	u681
+  1639  02EF  2AF1               	goto	u680
+  1640  02F0                     u681:
+  1641  02F0  2AF8               	goto	l1063
+  1642  02F1                     u680:
+  1643  02F1                     l1061:
+  1644                           
+  1645                           ;./PICOSC.h: 44:         OSCCONbits.IRCF = 1;
+  1646  02F1  1683               	bsf	3,5	;RP0=1, select bank1
+  1647  02F2  1303               	bcf	3,6	;RP1=0, select bank1
+  1648  02F3  080F               	movf	15,w	;volatile
+  1649  02F4  398F               	andlw	-113
+  1650  02F5  3810               	iorlw	16
+  1651  02F6  008F               	movwf	15	;volatile
+  1652                           
+  1653                           ;./PICOSC.h: 45:     }
+  1654  02F7  2B02               	goto	l60
+  1655  02F8                     l1063:
+  1656  02F8  0875               	movf	OSC_set@FreqClockSelect,w
+  1657  02F9  1D03               	btfss	3,2
+  1658  02FA  2AFC               	goto	u691
+  1659  02FB  2AFD               	goto	u690
+  1660  02FC                     u691:
+  1661  02FC  2B02               	goto	l68
+  1662  02FD                     u690:
+  1663  02FD                     l1065:
+  1664                           
+  1665                           ;./PICOSC.h: 47:         OSCCONbits.IRCF = 0;
+  1666  02FD  308F               	movlw	-113
+  1667  02FE  1683               	bsf	3,5	;RP0=1, select bank1
+  1668  02FF  1303               	bcf	3,6	;RP1=0, select bank1
+  1669  0300  058F               	andwf	15,f	;volatile
+  1670  0301  2B02               	goto	l60
+  1671  0302                     l68:
+  1672  0302                     l60:
+  1673                           
+  1674                           ;./PICOSC.h: 49:     if (InternalOsc == 1){
+  1675  0302  0373               	decf	OSC_set@InternalOsc,w
+  1676  0303  1D03               	btfss	3,2
+  1677  0304  2B06               	goto	u701
+  1678  0305  2B07               	goto	u700
+  1679  0306                     u701:
+  1680  0306  2B0B               	goto	l1069
+  1681  0307                     u700:
+  1682  0307                     l1067:
+  1683                           
+  1684                           ;./PICOSC.h: 50:         OSCCON |= (1<< 0x0);
+  1685  0307  1683               	bsf	3,5	;RP0=1, select bank1
+  1686  0308  1303               	bcf	3,6	;RP1=0, select bank1
+  1687  0309  140F               	bsf	15,0	;volatile
+  1688                           
+  1689                           ;./PICOSC.h: 51:     }
+  1690  030A  2B16               	goto	l77
+  1691  030B                     l1069:
+  1692  030B  0873               	movf	OSC_set@InternalOsc,w
+  1693  030C  1D03               	btfss	3,2
+  1694  030D  2B0F               	goto	u711
+  1695  030E  2B10               	goto	u710
+  1696  030F                     u711:
+  1697  030F  2B16               	goto	l77
+  1698  0310                     u710:
+  1699  0310                     l1071:
+  1700                           
+  1701                           ;./PICOSC.h: 53:         OSCCON &= ~(1<< 0x0);
+  1702  0310  30FE               	movlw	254
+  1703  0311  00F4               	movwf	??_OSC_set
+  1704  0312  0874               	movf	??_OSC_set,w
+  1705  0313  1683               	bsf	3,5	;RP0=1, select bank1
+  1706  0314  1303               	bcf	3,6	;RP1=0, select bank1
+  1707  0315  058F               	andwf	15,f	;volatile
+  1708  0316                     l77:
+  1709  0316  0008               	return
+  1710  0317                     __end_of_OSC_set:
+  1711                           
+  1712                           	psect	text5
+  1713  038A                     __ptext5:	
+  1714 ;; *************** function _IO_set *****************
+  1715 ;; Defined at:
+  1716 ;;		line 56 in file "main.c"
+  1717 ;; Parameters:    Size  Location     Type
+  1718 ;;		None
+  1719 ;; Auto vars:     Size  Location     Type
+  1720 ;;		None
+  1721 ;; Return value:  Size  Location     Type
+  1722 ;;                  1    wreg      void 
+  1723 ;; Registers used:
+  1724 ;;		status,2
+  1725 ;; Tracked objects:
+  1726 ;;		On entry : 0/0
+  1727 ;;		On exit  : 0/0
+  1728 ;;		Unchanged: 0/0
+  1729 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1730 ;;      Params:         0       0       0       0       0
+  1731 ;;      Locals:         0       0       0       0       0
+  1732 ;;      Temps:          0       0       0       0       0
+  1733 ;;      Totals:         0       0       0       0       0
+  1734 ;;Total ram usage:        0 bytes
+  1735 ;; Hardware stack levels used: 1
+  1736 ;; Hardware stack levels required when called: 2
+  1737 ;; This function calls:
+  1738 ;;		Nothing
+  1739 ;; This function is called by:
+  1740 ;;		_main
+  1741 ;; This function uses a non-reentrant model
+  1742 ;;
+  1743                           
+  1744  038A                     _IO_set:	
+  1745                           ;psect for function _IO_set
+  1746                           
+  1747  038A                     l877:	
+  1748                           ;incstack = 0
+  1749                           ; Regs used in _IO_set: [status,2]
+  1750                           
+  1751                           
+  1752                           ;main.c: 57:     TRISA = 0;
+  1753  038A  1683               	bsf	3,5	;RP0=1, select bank1
+  1754  038B  1303               	bcf	3,6	;RP1=0, select bank1
+  1755  038C  0185               	clrf	5	;volatile
+  1756  038D                     l90:
+  1757  038D  0008               	return
+  1758  038E                     __end_of_IO_set:
+  1759                           
+  1760                           	psect	text6
+  1761  0373                     __ptext6:	
+  1762 ;; *************** function _ISR *****************
+  1763 ;; Defined at:
+  1764 ;;		line 60 in file "main.c"
+  1765 ;; Parameters:    Size  Location     Type
+  1766 ;;		None
+  1767 ;; Auto vars:     Size  Location     Type
+  1768 ;;		None
+  1769 ;; Return value:  Size  Location     Type
+  1770 ;;                  1    wreg      void 
+  1771 ;; Registers used:
+  1772 ;;		wreg, pclath, cstack
+  1773 ;; Tracked objects:
+  1774 ;;		On entry : 0/0
+  1775 ;;		On exit  : 0/0
+  1776 ;;		Unchanged: 0/0
+  1777 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1778 ;;      Params:         0       0       0       0       0
+  1779 ;;      Locals:         0       0       0       0       0
+  1780 ;;      Temps:          3       0       0       0       0
+  1781 ;;      Totals:         3       0       0       0       0
+  1782 ;;Total ram usage:        3 bytes
+  1783 ;; Hardware stack levels used: 1
+  1784 ;; Hardware stack levels required when called: 1
+  1785 ;; This function calls:
+  1786 ;;		_UART_Rec
+  1787 ;; This function is called by:
+  1788 ;;		Interrupt level 1
+  1789 ;; This function uses a non-reentrant model
+  1790 ;;
+  1791                           
+  1792  0373                     _ISR:	
+  1793                           ;psect for function _ISR
+  1794                           
+  1795  0373                     i1l887:
+  1796                           
+  1797                           ;main.c: 61:     Rdata = UART_Rec();
+  1798  0373  120A  118A  2382  120A  118A  	fcall	_UART_Rec
+  1799  0378  00F0               	movwf	??_ISR
+  1800  0379  0870               	movf	??_ISR,w
+  1801  037A  00FA               	movwf	_Rdata
+  1802  037B                     i1l95:
+  1803  037B  0872               	movf	??_ISR+2,w
+  1804  037C  008A               	movwf	10
+  1805  037D  0E71               	swapf	??_ISR+1,w
+  1806  037E  0083               	movwf	3
+  1807  037F  0EFE               	swapf	btemp,f
+  1808  0380  0E7E               	swapf	btemp,w
+  1809  0381  0009               	retfie
+  1810  0382                     __end_of_ISR:
+  1811                           
+  1812                           	psect	intentry
+  1813  0004                     __pintentry:	
+  1814                           ;incstack = 0
+  1815                           ; Regs used in _ISR: [wreg+pclath+cstack]
+  1816                           
+  1817  0004                     interrupt_function:
+  1818  007E                     saved_w	set	btemp
+  1819  0004  00FE               	movwf	btemp
+  1820  0005  0E03               	swapf	3,w
+  1821  0006  00F1               	movwf	??_ISR+1
+  1822  0007  080A               	movf	10,w
+  1823  0008  00F2               	movwf	??_ISR+2
+  1824  0009  120A  118A  2B73   	ljmp	_ISR
+  1825                           
+  1826                           	psect	text7
+  1827  0382                     __ptext7:	
+  1828 ;; *************** function _UART_Rec *****************
+  1829 ;; Defined at:
+  1830 ;;		line 88 in file "./UARTcom.h"
+  1831 ;; Parameters:    Size  Location     Type
+  1832 ;;		None
+  1833 ;; Auto vars:     Size  Location     Type
+  1834 ;;		None
+  1835 ;; Return value:  Size  Location     Type
+  1836 ;;                  1    wreg      unsigned char 
+  1837 ;; Registers used:
+  1838 ;;		wreg
+  1839 ;; Tracked objects:
+  1840 ;;		On entry : 0/0
+  1841 ;;		On exit  : 0/0
+  1842 ;;		Unchanged: 0/0
+  1843 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1844 ;;      Params:         0       0       0       0       0
+  1845 ;;      Locals:         0       0       0       0       0
+  1846 ;;      Temps:          0       0       0       0       0
+  1847 ;;      Totals:         0       0       0       0       0
+  1848 ;;Total ram usage:        0 bytes
+  1849 ;; Hardware stack levels used: 1
+  1850 ;; This function calls:
+  1851 ;;		Nothing
+  1852 ;; This function is called by:
+  1853 ;;		_ISR
+  1854 ;; This function uses a non-reentrant model
+  1855 ;;
+  1856                           
+  1857  0382                     _UART_Rec:	
+  1858                           ;psect for function _UART_Rec
+  1859                           
+  1860  0382                     i1l833:	
+  1861                           ;incstack = 0
+  1862                           ; Regs used in _UART_Rec: [wreg]
+  1863                           
+  1864                           
+  1865                           ;./UARTcom.h: 89:     if(PIR1bits.RCIF == 1){
+  1866  0382  1283               	bcf	3,5	;RP0=0, select bank0
+  1867  0383  1303               	bcf	3,6	;RP1=0, select bank0
+  1868  0384  1E8C               	btfss	12,5	;volatile
+  1869  0385  2B87               	goto	u26_21
+  1870  0386  2B88               	goto	u26_20
+  1871  0387                     u26_21:
+  1872  0387  2B89               	goto	i1l56
+  1873  0388                     u26_20:
+  1874  0388                     i1l835:
+  1875                           
+  1876                           ;./UARTcom.h: 90:         return RCREG;
+  1877  0388  081A               	movf	26,w	;volatile
+  1878  0389                     i1l56:
+  1879  0389  0008               	return
+  1880  038A                     __end_of_UART_Rec:
+  1881  007E                     btemp	set	126	;btemp
+  1882  007E                     wtemp0	set	126
+  1883                           
+  1884                           	psect	idloc
+  1885                           
+  1886                           ;Config register IDLOC0 @ 0x2000
+  1887                           ;	unspecified, using default values
+  1888  2000                     	org	8192
+  1889  2000  3FFF               	dw	16383
+  1890                           
+  1891                           ;Config register IDLOC1 @ 0x2001
+  1892                           ;	unspecified, using default values
+  1893  2001                     	org	8193
+  1894  2001  3FFF               	dw	16383
+  1895                           
+  1896                           ;Config register IDLOC2 @ 0x2002
+  1897                           ;	unspecified, using default values
+  1898  2002                     	org	8194
+  1899  2002  3FFF               	dw	16383
+  1900                           
+  1901                           ;Config register IDLOC3 @ 0x2003
+  1902                           ;	unspecified, using default values
+  1903  2003                     	org	8195
+  1904  2003  3FFF               	dw	16383
+  1905                           
+  1906                           	psect	config
+  1907                           
+  1908                           ;Config register CONFIG1 @ 0x2007
+  1909                           ;	Oscillator Selection bits
+  1910                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
+      +                          unction on RA7/OSC1/CLKIN
+  1911                           ;	Watchdog Timer Enable bit
+  1912                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  1913                           ;	Power-up Timer Enable bit
+  1914                           ;	PWRTE = OFF, PWRT disabled
+  1915                           ;	RE3/MCLR pin function select bit
+  1916                           ;	MCLRE = OFF, RE3/MCLR pin function is digital input, MCLR internally tied to VDD
+  1917                           ;	Code Protection bit
+  1918                           ;	CP = OFF, Program memory code protection is disabled
+  1919                           ;	Data Code Protection bit
+  1920                           ;	CPD = OFF, Data memory code protection is disabled
+  1921                           ;	Brown Out Reset Selection bits
+  1922                           ;	BOREN = OFF, BOR disabled
+  1923                           ;	Internal External Switchover bit
+  1924                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  1925                           ;	Fail-Safe Clock Monitor Enabled bit
+  1926                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1927                           ;	Low Voltage Programming Enable bit
+  1928                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+  1929                           ;	In-Circuit Debugger Mode bit
+  1930                           ;	DEBUG = 0x1, unprogrammed default
+  1931  2007                     	org	8199
+  1932  2007  20D4               	dw	8404
+  1933                           
+  1934                           ;Config register CONFIG2 @ 0x2008
+  1935                           ;	Brown-out Reset Selection bit
+  1936                           ;	BOR4V = BOR40V, Brown-out Reset set to 4.0V
+  1937                           ;	Flash Program Memory Self Write Enable bits
+  1938                           ;	WRT = OFF, Write protection off
+  1939  2008                     	org	8200
+  1940  2008  3FFF               	dw	16383
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     10      11
+    BANK0            80     28      28
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    _UART_BDset->___aldiv
+
+Critical Paths under _ISR in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_UART_BDset
+    _UART_BDset->___aldiv
+
+Critical Paths under _ISR in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _ISR in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _ISR in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _ISR in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    3994
+                             _IO_set
+                            _OSC_set
+                         _UART_BDset
+                         _UART_RXset
+ ---------------------------------------------------------------------------------
+ (1) _UART_RXset                                           3     2      1     164
+                                              3 COMMON     3     2      1
+ ---------------------------------------------------------------------------------
+ (1) _UART_BDset                                          20    15      5    3534
+                                              8 BANK0     20    15      5
+                            ___aldiv
+ ---------------------------------------------------------------------------------
+ (2) ___aldiv                                             15     7      8    2245
+                                              3 COMMON     7     7      0
+                                              0 BANK0      8     0      8
+ ---------------------------------------------------------------------------------
+ (1) _OSC_set                                              3     2      1     296
+                                              3 COMMON     3     2      1
+ ---------------------------------------------------------------------------------
+ (1) _IO_set                                               0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (3) _ISR                                                  3     3      0       0
+                                              0 COMMON     3     3      0
+                           _UART_Rec
+ ---------------------------------------------------------------------------------
+ (4) _UART_Rec                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _IO_set
+   _OSC_set
+   _UART_BDset
+     ___aldiv
+   _UART_RXset
+
+ _ISR (ROOT)
+   _UART_Rec
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      A       B       1       78.6%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0      27       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50     1C      1C       5       35.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0      27      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.36 build 20220127204148 
+Symbol Table                                                                                   Tue Dec 06 00:48:45 2022
+
+                       l33 0198                         l42 01AD                         l43 0201  
+                       l60 0302                         l52 0348                         l90 038D  
+                       l68 0302                         l84 036B                         l77 0316  
+                      l246 0216                        l256 029E                        l877 038A  
+                      u600 0331                        u601 0330                        u610 033E  
+                      u611 033D                        u700 0307                        u620 02A6  
+                      _ISR 0373                        u701 0306                        u621 02A5  
+                      u710 0310                        u630 02B1                        u711 030F  
+                      u631 02B0                        u640 02BE                        u800 0286  
+                      u720 0209                        u641 02BD                        u801 0285  
+                      u721 0208                        u650 02CB                        u810 028B  
+                      u730 021A                        u651 02CA                        u811 028A  
+                      u731 0219                        u660 02D8                        u740 0239  
+                      u900 0144                        u820 001B                        u580 031D  
+                      u661 02D7                        u741 0238                        u901 0143  
+                      u821 001A                        u581 031C                        u670 02E5  
+                      u910 019E                        u830 0020                        u590 0329  
+                      u671 02E4                        u911 019D                        u831 001F  
+                      u591 0328                        u680 02F1                        u760 024D  
+                      u920 01A3                        u840 0025                        u681 02F0  
+                      u761 024C                        u921 01A2                        u841 0024  
+                      u690 02FD                        u850 0082                        u691 02FC  
+                      u755 023E                        u851 0081                        u780 0268  
+                      u860 0087                        u781 0267                        u861 0086  
+                      u870 00E3                        u775 024F                        u871 00E2  
+                      u880 00E8                        u785 0264                        u881 00E7  
+                      u890 013F                        u795 0278                        u891 013E  
+    UART_BDset@BitBaudSize 002B          UART_BDset@SyncSel 002A        UART_BDset@HighSpeed 002C  
+                     ?_ISR 0070                       l1101 024D                       l1021 0329  
+                     l1111 0280                       l1103 0256                       l1031 033E  
+                     l1023 032C                       l1015 0318                       l1041 02B1  
+                     l1105 0268                       l1113 0286                       l1201 01FA  
+                     l1121 0014                       l1025 0331                       l1017 031D  
+                     l1051 02D2                       l1043 02B8                       l1035 02A0  
+                     l1115 028B                       l1107 0276                       l1131 002E  
+                     l1123 001B                       l1027 0335                       l1019 0324  
+                     l1211 0355                       l1061 02F1                       l1053 02D8  
+                     l1045 02BE                       l1037 02A6                       l1117 0296  
+                     l1109 0277                       l1141 0082                       l1133 0050  
+                     l1125 0020                       l1029 0339                       l1213 0363  
+                     l1071 0310                       l1063 02F8                       l1055 02DF  
+                     l1047 02C5                       l1039 02AB                       l1151 00D3  
+                     l1143 0087                       l1135 0073                       l1127 0025  
+                     l1207 0349                       l1065 02FD                       l1057 02E5  
+                     l1049 02CB                       l1081 0202                       l1161 00E8  
+                     l1153 00D7                       l1145 008A                       l1137 0079  
+                     l1129 0028                       l1209 0350                       l1067 0307  
+                     l1059 02EC                       l1091 0229                       l1083 0203  
+                     l1163 00EE                       l1147 0092                       l1139 007D  
+                     l1069 030B                       l1093 0231                       l1085 0209  
+                     l1181 0174                       l1165 00F4                       l1173 013A  
+                     l1149 00B4                       l1157 00DE                       l1095 0239  
+                     l1087 021A                       l1191 01A3                       l1183 0193  
+                     l1175 013F                       l1167 0116                       l1159 00E3  
+                     l1097 023C                       l1089 0225                       l1193 01A7  
+                     l1177 0144                       l1169 0135                       l1099 0249  
+                     l1195 01B5                       l1179 0152                       l1187 0199  
+                     l1197 01D7                       l1189 019E                       l1199 01F6  
+                     _PIE1 008C                       i1l56 0389                       i1l95 037B  
+                     _main 0349            __end_of_OSC_set 0317                       btemp 007E  
+                     start 000C                      ??_ISR 0070            __end_of___aldiv 029F  
+                    ?_main 0070                ?_UART_BDset 0028                      i1l833 0382  
+                    i1l835 0388                      i1l887 0373                      _RCREG 001A  
+                    _RCSTA 0018                      u26_20 0388                      u26_21 0387  
+                    _SPBRG 0099                      _PORTA 0005                      _TRISA 0085  
+                    _TXSTA 0098                ?_UART_RXset 0073                      _Rdata 007A  
+         __end_of_UART_Rec 038A                      pclath 000A                      status 0003  
+                    wtemp0 007E             UART_BDset@baud 0028            __initialization 000F  
+             __end_of_main 0373       UART_BDset@PeriodBaud 0032                     ??_main 007A  
+     UART_RXset@ContSingRx 0075     OSC_set@FreqClockSelect 0075                  ??_OSC_set 0074  
+       OSC_set@InternalOsc 0073                     _INTCON 000B                     _OSCCON 008F  
+                   _SPBRGH 009A                     _IO_set 038A    UART_BDset@PeriodBaud_90 0030  
+  UART_BDset@PeriodBaud_91 0036    UART_BDset@PeriodBaud_88 0034    UART_BDset@PeriodBaud_89 002E  
+                ??___aldiv 0073                     saved_w 007E    __end_of__initialization 0010  
+           __pcstackCOMMON 0070                  ?_UART_Rec 0070             _UART_BDset$738 0038  
+                  ?_IO_set 0070                 __pmaintext 0349                 ??_UART_Rec 0070  
+               __pintentry 0004                    _BAUDCTL 0187               ??_UART_BDset 002D  
+             ??_UART_RXset 0074                    _OSC_set 029F         __end_of_UART_BDset 0202  
+       __end_of_UART_RXset 0349                    ___aldiv 0202                    __ptext1 0317  
+                  __ptext2 0014                    __ptext3 0202                    __ptext4 029F  
+                  __ptext5 038A                    __ptext6 0373                    __ptext7 0382  
+         ___aldiv@dividend 0024       end_of_initialization 0010           ___aldiv@quotient 0076  
+           __end_of_IO_set 038E        start_initialization 000F                __end_of_ISR 0382  
+                 ??_IO_set 0073                __pbssCOMMON 007A                  ___latbits 0002  
+            __pcstackBANK0 0020                   ?_OSC_set 0073                   ?___aldiv 0020  
+          ___aldiv@divisor 0020          interrupt_function 0004            ___aldiv@counter 0074  
+                 _PIR1bits 000C                   _UART_Rec 0382  UART_RXset@InterruptEnable 0073  
+                 intlevel1 0000                 _OSCCONbits 008F                 _UART_BDset 0014  
+               _UART_RXset 0317               ___aldiv@sign 0075  
