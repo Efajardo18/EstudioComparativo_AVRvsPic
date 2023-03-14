@@ -2918,18 +2918,33 @@ void OSC_set(char FreqClockSelect, char InternalOsc){
 # 36 "main.c" 2
 
 
-char tData = 83;
-char rData = 0;
+char tData = 10;
+char rData = 15;
+
+void IO_set();
 
 void main(void) {
     OSC_set(7,0);
-    SPIPIC_set(1, 0, 1, 0, 0b00000000);
+    IO_set();
+    SPIPIC_set(1, 0, 0, 0, 0b00000010);
     SSPBUF = tData;
     while(1)
     {
+        if(rData == 15){
+            PORTA = 7;
+        }
+        else{
+            PORTA = 0;
+            while(1){
 
+            }
+        }
     }
     return;
+}
+
+void IO_set(void){
+    TRISA = 0x00;
 }
 
 void __attribute__((picinterrupt(("")))) ISR (void){

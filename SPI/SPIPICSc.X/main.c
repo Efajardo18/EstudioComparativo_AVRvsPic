@@ -35,18 +35,33 @@
 #include "SPIcom.h"
 #include "PICOSC.h"
 
-char tData = 83;
-char rData = 0;
+char tData = 10;
+char rData = 15;
+
+void IO_set();
 
 void main(void) {
     OSC_set(_8M,0);
-    SPIPIC_set(1, Mid, B, Slave, _F4);
+    IO_set();
+    SPIPIC_set(1, Mid, A, Slave, _F64);
     SSPBUF = tData;
     while(1)
     {
-
+        if(rData == 15){
+            PORTA = 7;
+        }
+        else{
+            PORTA = 0;
+            while(1){
+                
+            }
+        }
     }
     return;
+}
+
+void IO_set(void){
+    TRISA = 0x00;
 }
 
 void __interrupt() ISR (void){

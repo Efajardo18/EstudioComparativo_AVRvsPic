@@ -89,6 +89,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;D:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1863: extern volatile unsigned char OSCCON __attribute__((address(0x08F)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@143 ]
 [p mainexit ]
+"41 main.c
+[; ;main.c: 41: void IO_set();
+[v _IO_set `(v ~T0 @X0 0 e? ]
+"1417 D:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h
+[; ;D:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\pic\include\proc\pic16f887.h: 1417: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 "538
@@ -975,69 +981,117 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 193 ]
 }
 "38 main.c
-[; ;main.c: 38: char tData = 83;
+[; ;main.c: 38: char tData = 10;
 [v _tData `uc ~T0 @X0 1 e ]
 [i _tData
--> -> 83 `i `uc
+-> -> 10 `i `uc
 ]
 "39
-[; ;main.c: 39: char rData = 0;
+[; ;main.c: 39: char rData = 15;
 [v _rData `uc ~T0 @X0 1 e ]
 [i _rData
--> -> 0 `i `uc
+-> -> 15 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"41
-[; ;main.c: 41: void main(void) {
+"43
+[; ;main.c: 43: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"42
-[; ;main.c: 42:     OSC_set(7,0);
-[e ( _OSC_set (2 , -> -> 7 `i `uc -> -> 0 `i `uc ]
-"43
-[; ;main.c: 43:     SPIPIC_set(1, 0, 1, 0, 0b00000000);
-[e ( _SPIPIC_set (4 , , , , -> -> 1 `i `uc -> -> 0 `i `uc -> 1 `i -> -> 0 `i `uc -> -> 0 `i `uc ]
 "44
-[; ;main.c: 44:     SSPBUF = tData;
-[e = _SSPBUF -> _tData `uc ]
+[; ;main.c: 44:     OSC_set(7,0);
+[e ( _OSC_set (2 , -> -> 7 `i `uc -> -> 0 `i `uc ]
 "45
-[; ;main.c: 45:     while(1)
-[e :U 214 ]
+[; ;main.c: 45:     IO_set();
+[e ( _IO_set ..  ]
 "46
-[; ;main.c: 46:     {
-{
+[; ;main.c: 46:     SPIPIC_set(1, 0, 0, 0, 0b00000010);
+[e ( _SPIPIC_set (4 , , , , -> -> 1 `i `uc -> -> 0 `i `uc -> 0 `i -> -> 0 `i `uc -> -> 2 `i `uc ]
+"47
+[; ;main.c: 47:     SSPBUF = tData;
+[e = _SSPBUF -> _tData `uc ]
 "48
-[; ;main.c: 48:     }
+[; ;main.c: 48:     while(1)
+[e :U 214 ]
+"49
+[; ;main.c: 49:     {
+{
+"50
+[; ;main.c: 50:         if(rData == 15){
+[e $ ! == -> _rData `i -> 15 `i 216  ]
+{
+"51
+[; ;main.c: 51:             PORTA = 7;
+[e = _PORTA -> -> 7 `i `uc ]
+"52
+[; ;main.c: 52:         }
+}
+[e $U 217  ]
+"53
+[; ;main.c: 53:         else{
+[e :U 216 ]
+{
+"54
+[; ;main.c: 54:             PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"55
+[; ;main.c: 55:             while(1){
+[e :U 219 ]
+{
+"57
+[; ;main.c: 57:             }
+}
+[e :U 218 ]
+[e $U 219  ]
+[e :U 220 ]
+"58
+[; ;main.c: 58:         }
+}
+[e :U 217 ]
+"59
+[; ;main.c: 59:     }
 }
 [e :U 213 ]
 [e $U 214  ]
 [e :U 215 ]
-"49
-[; ;main.c: 49:     return;
+"60
+[; ;main.c: 60:     return;
 [e $UE 212  ]
-"50
-[; ;main.c: 50: }
+"61
+[; ;main.c: 61: }
 [e :UE 212 ]
 }
+"63
+[; ;main.c: 63: void IO_set(void){
+[v _IO_set `(v ~T0 @X0 1 ef ]
+{
+[e :U _IO_set ]
+[f ]
+"64
+[; ;main.c: 64:     TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+"65
+[; ;main.c: 65: }
+[e :UE 221 ]
+}
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"52
-[; ;main.c: 52: void __attribute__((picinterrupt(("")))) ISR (void){
+"67
+[; ;main.c: 67: void __attribute__((picinterrupt(("")))) ISR (void){
 [v _ISR `(v ~T1 @X0 1 ef ]
 {
 [e :U _ISR ]
 [f ]
-"54
-[; ;main.c: 54:         rData = SSPBUF;
+"69
+[; ;main.c: 69:         rData = SSPBUF;
 [e = _rData -> _SSPBUF `uc ]
-"55
-[; ;main.c: 55:         SSPBUF = tData;
+"70
+[; ;main.c: 70:         SSPBUF = tData;
 [e = _SSPBUF -> _tData `uc ]
-"56
-[; ;main.c: 56:         PIR1 &= ~(1<< 0x3);
+"71
+[; ;main.c: 71:         PIR1 &= ~(1<< 0x3);
 [e =& _PIR1 -> ~ << -> 1 `i -> 3 `i `Vuc ]
-"58
-[; ;main.c: 58: }
-[e :UE 216 ]
+"73
+[; ;main.c: 73: }
+[e :UE 222 ]
 }

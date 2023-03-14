@@ -11,23 +11,24 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
+$C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
 idloc IDLOC 5 2000 2000 4 2 1
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 2 2 1
 $dist/default/production\SPIPICMc.X.production.o
-cinit CODE 0 7FA 7FA 6 2 1
+cinit CODE 0 7F5 7F5 B 2 1
 idloc IDLOC 5 2000 2000 4 2 1
-text1 CODE 0 5FD 5FD 6E 2 1
-text2 CODE 0 66B 66B 73 2 1
-text3 CODE 0 5AE 5AE E 2 1
-text4 CODE 0 59C 59C 7 2 1
-text5 CODE 0 756 756 A4 2 1
-text6 CODE 0 6DE 6DE 78 2 1
-text7 CODE 0 5A3 5A3 B 2 1
-maintext CODE 0 5BC 5BC 41 2 1
+text1 CODE 0 666 666 73 2 1
+text2 CODE 0 625 625 E 2 1
+text3 CODE 0 614 614 7 2 1
+text4 CODE 0 751 751 A4 2 1
+text5 CODE 0 6D9 6D9 78 2 1
+text6 CODE 0 61B 61B A 2 1
+idataCOMMON CODE 0 613 613 1 2 1
+maintext CODE 0 633 633 33 2 1
 cstackCOMMON COMMON 1 70 70 7 1 1
-bssCOMMON COMMON 1 77 77 2 1 1
+dataCOMMON COMMON 1 78 78 1 1 1
+bssCOMMON COMMON 1 77 77 1 1 1
 config CONFIG 4 2007 2007 2 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -43,11 +44,11 @@ BANK0 20-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-59B 2
+CONST 3-612 2
 CONST 800-1FFF 2
-ENTRY 3-59B 2
+ENTRY 3-612 2
 ENTRY 800-1FFF 2
-CODE 3-59B 2
+CODE 3-612 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -55,9 +56,9 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 79-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-59B 2
+STRCODE 3-612 2
 STRCODE 800-1FFF 2
-STRING 3-59B 2
+STRING 3-612 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -73,164 +74,135 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SPIPICMc.X.production.o
-7FA cinit CODE >462:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-7FA cinit CODE >465:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-7FA cinit CODE >479:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-7FB cinit CODE >480:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-7FC cinit CODE >486:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-7FC cinit CODE >488:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-7FD cinit CODE >489:C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.s
-5A3 text7 CODE >58:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5A3 text7 CODE >59:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5A6 text7 CODE >60:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5AA text7 CODE >61:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5AD text7 CODE >63:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-6DE text6 CODE >24:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6DF text6 CODE >25:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6E5 text6 CODE >26:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6E9 text6 CODE >27:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6EA text6 CODE >28:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6F0 text6 CODE >29:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6F6 text6 CODE >30:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6F7 text6 CODE >31:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-6FD text6 CODE >32:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-703 text6 CODE >33:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-704 text6 CODE >34:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-70A text6 CODE >35:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-710 text6 CODE >36:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-711 text6 CODE >37:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-717 text6 CODE >38:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-71D text6 CODE >39:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-71E text6 CODE >40:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-724 text6 CODE >41:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-72A text6 CODE >42:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-72B text6 CODE >43:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-730 text6 CODE >44:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-736 text6 CODE >45:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-737 text6 CODE >46:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-73C text6 CODE >47:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-741 text6 CODE >48:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-741 text6 CODE >49:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-746 text6 CODE >50:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-749 text6 CODE >51:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-74A text6 CODE >52:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-74F text6 CODE >53:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-755 text6 CODE >55:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
-756 text5 CODE >29:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-756 text5 CODE >30:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-759 text5 CODE >31:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-75E text5 CODE >32:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-75F text5 CODE >33:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-764 text5 CODE >34:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-765 text5 CODE >35:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-766 text5 CODE >36:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-76B text5 CODE >37:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-76F text5 CODE >38:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-76F text5 CODE >39:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-775 text5 CODE >40:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-779 text5 CODE >41:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-780 text5 CODE >42:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-781 text5 CODE >43:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-787 text5 CODE >44:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-788 text5 CODE >45:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-78F text5 CODE >46:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-790 text5 CODE >47:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-797 text5 CODE >48:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-79B text5 CODE >49:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7A2 text5 CODE >50:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7A3 text5 CODE >51:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7AA text5 CODE >52:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7AB text5 CODE >53:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7B3 text5 CODE >54:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7B4 text5 CODE >56:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7B9 text5 CODE >57:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7BA text5 CODE >58:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7C0 text5 CODE >59:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7C4 text5 CODE >60:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7CA text5 CODE >61:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7CB text5 CODE >62:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7D1 text5 CODE >63:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7D2 text5 CODE >64:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7D8 text5 CODE >65:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7D9 text5 CODE >66:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7E0 text5 CODE >67:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7E4 text5 CODE >68:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7EA text5 CODE >69:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7EB text5 CODE >70:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7F2 text5 CODE >71:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7F3 text5 CODE >72:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-7F9 text5 CODE >75:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-59C text4 CODE >77:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-59C text4 CODE >78:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5A2 text4 CODE >79:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5AE text3 CODE >81:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5AF text3 CODE >82:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5B3 text3 CODE >83:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5B8 text3 CODE >84:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5BB text3 CODE >85:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-66B text2 CODE >96:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-66C text2 CODE >97:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-671 text2 CODE >99:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-675 text2 CODE >99:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-678 text2 CODE >99:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-681 text2 CODE >100:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-682 text2 CODE >101:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-687 text2 CODE >103:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-68B text2 CODE >103:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-68E text2 CODE >103:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-697 text2 CODE >104:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-698 text2 CODE >105:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-69E text2 CODE >107:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6A2 text2 CODE >107:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6A5 text2 CODE >107:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6AE text2 CODE >108:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6AF text2 CODE >109:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6B5 text2 CODE >111:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6B9 text2 CODE >111:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6BC text2 CODE >111:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6C5 text2 CODE >112:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6C6 text2 CODE >113:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6CC text2 CODE >115:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6D0 text2 CODE >115:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6D3 text2 CODE >115:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6DD text2 CODE >116:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-6DD text2 CODE >117:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5FD text1 CODE >119:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5FE text1 CODE >120:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-603 text1 CODE >122:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-607 text1 CODE >122:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-60A text1 CODE >122:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-612 text1 CODE >123:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-613 text1 CODE >124:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-618 text1 CODE >126:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-61C text1 CODE >126:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-61F text1 CODE >126:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-627 text1 CODE >127:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-628 text1 CODE >128:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-62E text1 CODE >130:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-632 text1 CODE >130:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-635 text1 CODE >130:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-63D text1 CODE >131:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-63E text1 CODE >132:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-644 text1 CODE >134:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-648 text1 CODE >134:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-64B text1 CODE >134:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-653 text1 CODE >135:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-654 text1 CODE >136:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-65A text1 CODE >138:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-65E text1 CODE >138:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-661 text1 CODE >138:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-66A text1 CODE >139:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-66A text1 CODE >140:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-5BC maintext CODE >44:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5BC maintext CODE >45:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5C3 maintext CODE >46:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5C8 maintext CODE >47:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5D8 maintext CODE >48:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5D8 maintext CODE >50:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5E2 maintext CODE >51:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5EB maintext CODE >52:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
-5F5 maintext CODE >53:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+7F5 cinit CODE >467:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7F5 cinit CODE >470:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7F5 cinit CODE >490:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7FA cinit CODE >491:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7FB cinit CODE >495:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7FC cinit CODE >501:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7FC cinit CODE >503:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+7FD cinit CODE >504:C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.s
+61B text6 CODE >58:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+61B text6 CODE >60:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+621 text6 CODE >61:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+624 text6 CODE >63:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+6D9 text5 CODE >24:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6DA text5 CODE >25:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6E0 text5 CODE >26:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6E4 text5 CODE >27:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6E5 text5 CODE >28:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6EB text5 CODE >29:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6F1 text5 CODE >30:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6F2 text5 CODE >31:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6F8 text5 CODE >32:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6FE text5 CODE >33:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+6FF text5 CODE >34:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+705 text5 CODE >35:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+70B text5 CODE >36:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+70C text5 CODE >37:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+712 text5 CODE >38:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+718 text5 CODE >39:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+719 text5 CODE >40:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+71F text5 CODE >41:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+725 text5 CODE >42:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+726 text5 CODE >43:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+72B text5 CODE >44:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+731 text5 CODE >45:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+732 text5 CODE >46:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+737 text5 CODE >47:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+73C text5 CODE >48:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+73C text5 CODE >49:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+741 text5 CODE >50:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+744 text5 CODE >51:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+745 text5 CODE >52:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+74A text5 CODE >53:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+750 text5 CODE >55:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/PICOSC.h
+751 text4 CODE >29:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+751 text4 CODE >30:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+754 text4 CODE >31:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+759 text4 CODE >32:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+75A text4 CODE >33:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+75F text4 CODE >34:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+760 text4 CODE >35:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+761 text4 CODE >36:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+766 text4 CODE >37:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+76A text4 CODE >38:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+76A text4 CODE >39:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+770 text4 CODE >40:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+774 text4 CODE >41:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+77B text4 CODE >42:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+77C text4 CODE >43:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+782 text4 CODE >44:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+783 text4 CODE >45:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+78A text4 CODE >46:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+78B text4 CODE >47:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+792 text4 CODE >48:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+796 text4 CODE >49:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+79D text4 CODE >50:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+79E text4 CODE >51:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7A5 text4 CODE >52:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7A6 text4 CODE >53:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7AE text4 CODE >54:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7AF text4 CODE >56:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7B4 text4 CODE >57:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7B5 text4 CODE >58:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7BB text4 CODE >59:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7BF text4 CODE >60:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7C5 text4 CODE >61:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7C6 text4 CODE >62:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7CC text4 CODE >63:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7CD text4 CODE >64:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7D3 text4 CODE >65:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7D4 text4 CODE >66:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7DB text4 CODE >67:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7DF text4 CODE >68:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7E5 text4 CODE >69:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7E6 text4 CODE >70:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7ED text4 CODE >71:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7EE text4 CODE >72:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+7F4 text4 CODE >75:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+614 text3 CODE >77:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+614 text3 CODE >78:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+61A text3 CODE >79:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+625 text2 CODE >81:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+626 text2 CODE >82:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+62A text2 CODE >83:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+62F text2 CODE >84:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+632 text2 CODE >85:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+666 text1 CODE >96:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+667 text1 CODE >97:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+66C text1 CODE >99:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+670 text1 CODE >99:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+673 text1 CODE >99:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+67C text1 CODE >100:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+67D text1 CODE >101:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+682 text1 CODE >103:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+686 text1 CODE >103:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+689 text1 CODE >103:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+692 text1 CODE >104:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+693 text1 CODE >105:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+699 text1 CODE >107:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+69D text1 CODE >107:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6A0 text1 CODE >107:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6A9 text1 CODE >108:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6AA text1 CODE >109:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6B0 text1 CODE >111:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6B4 text1 CODE >111:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6B7 text1 CODE >111:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6C0 text1 CODE >112:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6C1 text1 CODE >113:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6C7 text1 CODE >115:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6CB text1 CODE >115:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6CE text1 CODE >115:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6D8 text1 CODE >116:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+6D8 text1 CODE >117:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
+633 maintext CODE >44:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+633 maintext CODE >45:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+63A maintext CODE >46:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+63F maintext CODE >47:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+64F maintext CODE >48:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+659 maintext CODE >49:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
+659 maintext CODE >51:D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -249,48 +221,48 @@ __Hspace_1 79 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
-__end_of_IO_set B5C 0 CODE 0 text7 dist/default/production\SPIPICMc.X.production.o
+__end_of_IO_set C4A 0 CODE 0 text6 dist/default/production\SPIPICMc.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-_main B78 0 CODE 0 maintext dist/default/production\SPIPICMc.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+_main C66 0 CODE 0 maintext dist/default/production\SPIPICMc.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
-start 0 0 CODE 0 init C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
+start 0 0 CODE 0 init C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 SSstart@SlaveNum 70 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-__end_of_SSstop CD6 0 CODE 0 text1 dist/default/production\SPIPICMc.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
+__HdataCOMMON 0 0 ABS 0 dataCOMMON -
+intlevel0 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-_SPIPIC_set EAC 0 CODE 0 text5 dist/default/production\SPIPICMc.X.production.o
-_SPIPIC_tnr B5C 0 CODE 0 text3 dist/default/production\SPIPICMc.X.production.o
+__pidataCOMMON C26 0 CODE 0 idataCOMMON dist/default/production\SPIPICMc.X.production.o
+__LdataCOMMON 0 0 ABS 0 dataCOMMON -
+_SPIPIC_set EA2 0 CODE 0 text4 dist/default/production\SPIPICMc.X.production.o
+_SPIPIC_tnr C4A 0 CODE 0 text2 dist/default/production\SPIPICMc.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-SSstop@Port 74 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
-_IO_set B46 0 CODE 0 text7 dist/default/production\SPIPICMc.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-___stacklo 0 0 ABS 0 - C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-SSstop@SlaveNum 70 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
-start_initialization FF4 0 CODE 0 cinit dist/default/production\SPIPICMc.X.production.o
+_IO_set C36 0 CODE 0 text6 dist/default/production\SPIPICMc.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+___stacklo 0 0 ABS 0 - C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+__LidataCOMMON 0 0 ABS 0 idataCOMMON -
+start_initialization FEA 0 CODE 0 cinit dist/default/production\SPIPICMc.X.production.o
 _OSCCON 8F 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
-__end_of_OSC_set EAC 0 CODE 0 text6 dist/default/production\SPIPICMc.X.production.o
+__end_of_OSC_set EA2 0 CODE 0 text5 dist/default/production\SPIPICMc.X.production.o
 _SSPBUF 13 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
-_SSstop BFA 0 CODE 0 text1 dist/default/production\SPIPICMc.X.production.o
-__end_of_SPIPIC_set FF4 0 CODE 0 text5 dist/default/production\SPIPICMc.X.production.o
-__end_of_SPIPIC_tnr B78 0 CODE 0 text3 dist/default/production\SPIPICMc.X.production.o
+__end_of_SPIPIC_set FEA 0 CODE 0 text4 dist/default/production\SPIPICMc.X.production.o
+__end_of_SPIPIC_tnr C66 0 CODE 0 text2 dist/default/production\SPIPICMc.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
-_SPIPIC_Rwait B38 0 CODE 0 text4 dist/default/production\SPIPICMc.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
+_SPIPIC_Rwait C28 0 CODE 0 text3 dist/default/production\SPIPICMc.X.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -305,7 +277,7 @@ __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FF4 0 CODE 0 cinit -
+__Lcinit FEA 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 5 idloc -
 __Lstack 0 0 STACK 2 stack -
 __Habs1 0 0 ABS 0 abs1 -
@@ -330,16 +302,17 @@ __S0 800 0 ABS 0 - -
 __S1 79 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 OSC_set@FreqClockSelect 72 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
-__end_of_SSstart DBC 0 CODE 0 text2 dist/default/production\SPIPICMc.X.production.o
-__end_of_SPIPIC_Rwait B46 0 CODE 0 text4 dist/default/production\SPIPICMc.X.production.o
+__HidataCOMMON 0 0 ABS 0 idataCOMMON -
+__end_of_SSstart DB2 0 CODE 0 text1 dist/default/production\SPIPICMc.X.production.o
+__end_of_SPIPIC_Rwait C36 0 CODE 0 text3 dist/default/production\SPIPICMc.X.production.o
 __Lintentry 0 0 CODE 0 intentry -
 SPIPIC_set@EdgeSampled 70 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Olifa\AppData\Local\Temp\xcAs7v8.o
-__pmaintext B78 0 CODE 0 maintext dist/default/production\SPIPICMc.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Olifa\AppData\Local\Temp\xcAs4ro.o
+__pmaintext C66 0 CODE 0 maintext dist/default/production\SPIPICMc.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 SPIPIC_set@FrqSCK 74 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
-_OSC_set DBC 0 CODE 0 text6 dist/default/production\SPIPICMc.X.production.o
+_OSC_set DB2 0 CODE 0 text5 dist/default/production\SPIPICMc.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -353,13 +326,12 @@ end_of_initialization FF8 0 CODE 0 cinit dist/default/production\SPIPICMc.X.prod
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 BFA 0 CODE 0 text1 dist/default/production\SPIPICMc.X.production.o
-__ptext2 CD6 0 CODE 0 text2 dist/default/production\SPIPICMc.X.production.o
-__ptext3 B5C 0 CODE 0 text3 dist/default/production\SPIPICMc.X.production.o
-__ptext4 B38 0 CODE 0 text4 dist/default/production\SPIPICMc.X.production.o
-__ptext5 EAC 0 CODE 0 text5 dist/default/production\SPIPICMc.X.production.o
-__ptext6 DBC 0 CODE 0 text6 dist/default/production\SPIPICMc.X.production.o
-__ptext7 B46 0 CODE 0 text7 dist/default/production\SPIPICMc.X.production.o
+__ptext1 CCC 0 CODE 0 text1 dist/default/production\SPIPICMc.X.production.o
+__ptext2 C4A 0 CODE 0 text2 dist/default/production\SPIPICMc.X.production.o
+__ptext3 C28 0 CODE 0 text3 dist/default/production\SPIPICMc.X.production.o
+__ptext4 EA2 0 CODE 0 text4 dist/default/production\SPIPICMc.X.production.o
+__ptext5 DB2 0 CODE 0 text5 dist/default/production\SPIPICMc.X.production.o
+__ptext6 C36 0 CODE 0 text6 dist/default/production\SPIPICMc.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -370,14 +342,13 @@ SPIPIC_set@Role 73 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.pr
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 __Hend_init 6 0 CODE 0 end_init -
-_SSstart CD6 0 CODE 0 text2 dist/default/production\SPIPICMc.X.production.o
-__end_of_main BFA 0 CODE 0 maintext dist/default/production\SPIPICMc.X.production.o
+_SSstart CCC 0 CODE 0 text1 dist/default/production\SPIPICMc.X.production.o
+__end_of_main CCC 0 CODE 0 maintext dist/default/production\SPIPICMc.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _PORTC 7 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _PORTE 9 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
-_TRISA 85 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
@@ -385,7 +356,8 @@ SSstart@Port 74 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.produ
 OSC_set@InternalOsc 70 0 COMMON 1 cstackCOMMON dist/default/production\SPIPICMc.X.production.o
 _rData 77 0 COMMON 1 bssCOMMON dist/default/production\SPIPICMc.X.production.o
 _SSPSTATbits 94 0 ABS 0 - dist/default/production\SPIPICMc.X.production.o
-__initialization FF4 0 CODE 0 cinit dist/default/production\SPIPICMc.X.production.o
+__initialization FEA 0 CODE 0 cinit dist/default/production\SPIPICMc.X.production.o
+__pdataCOMMON 78 0 COMMON 1 dataCOMMON dist/default/production\SPIPICMc.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -411,15 +383,15 @@ __initialization FF4 0 CODE 0 cinit dist/default/production\SPIPICMc.X.productio
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7FA FF4 6 2
-text1 0 5FD BFA 6E 2
-text2 0 66B CD6 73 2
-text3 0 5AE B5C E 2
-text4 0 59C B38 7 2
-text5 0 756 EAC A4 2
-text6 0 6DE DBC 78 2
-text7 0 5A3 B46 B 2
-maintext 0 5BC B78 41 2
+cinit 0 7F5 FEA B 2
+text1 0 666 CCC 73 2
+text2 0 625 C4A E 2
+text3 0 614 C28 7 2
+text4 0 751 EA2 A4 2
+text5 0 6D9 DB2 78 2
+text6 0 61B C36 A 2
+idataCOMMON 0 613 C26 1 2
+maintext 0 633 C66 33 2
 cstackCOMMON 1 70 70 9 1
 reset_vec 0 0 0 3 2
 # %NOTES Section

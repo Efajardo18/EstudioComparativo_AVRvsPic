@@ -2939,7 +2939,7 @@ void OSC_set(char FreqClockSelect, char InternalOsc){
 # 37 "main.c" 2
 
 
-char tData = 0;
+char tData = 15;
 uint8_t rData = 0;
 
 void IO_set(void);
@@ -2948,18 +2948,18 @@ void main(void) {
     OSC_set(7,0);
     IO_set();
     SPIPIC_set(0, 0, 0, 1, 0b00000010);
+    SSstart(1,7);
     while(1)
     {
-       SSstart(1,7);
        rData = SPIPIC_tnr(tData);
-       SSstop(1,7);
-       PORTA = rData;
+
+
     }
     return;
 }
 
 void IO_set(void){
-    TRISA = 0x00;
+
     TRISB &= ~(1<<7);
     PORTB |= (1<<7);
     return;

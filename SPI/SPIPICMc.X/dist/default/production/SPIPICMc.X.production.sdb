@@ -13,8 +13,6 @@
 [v _SPIPIC_tnr SPIPIC_tnr `(uc  1 e 1 0 ]
 "96
 [v _SSstart SSstart `(v  1 e 1 0 ]
-"119
-[v _SSstop SSstop `(v  1 e 1 0 ]
 "10 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c90\common\Umul8_16.c
@@ -41,8 +39,6 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "851
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"1417
-[v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1479
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1863
@@ -117,16 +113,7 @@
 {
 "56
 } 0
-"119 D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
-[v _SSstop SSstop `(v  1 e 1 0 ]
-{
-[v SSstop@Port Port `uc  1 a 1 wreg ]
-[v SSstop@Port Port `uc  1 a 1 wreg ]
-[v SSstop@SlaveNum SlaveNum `i  1 p 2 0 ]
-[v SSstop@Port Port `uc  1 a 1 4 ]
-"140
-} 0
-"96
+"96 D:\UVG\10_Semestre\ProyectoGrad\SPI\SPIPICMc.X/SPIcom.h
 [v _SSstart SSstart `(v  1 e 1 0 ]
 {
 [v SSstart@Port Port `uc  1 a 1 wreg ]

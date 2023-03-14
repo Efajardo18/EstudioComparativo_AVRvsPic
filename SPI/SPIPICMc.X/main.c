@@ -36,7 +36,7 @@
 #include "SPIcom.h"
 #include "PICOSC.h"
 
-char tData = 0;
+char tData = 15;
 uint8_t rData = 0;
 
 void IO_set(void);
@@ -45,18 +45,18 @@ void main(void) {
     OSC_set(_8M,0);
     IO_set();
     SPIPIC_set(0, Mid, A, Master, _F64);
+    SSstart(B,7);
     while(1)
     {
-       SSstart(B,7);
        rData = SPIPIC_tnr(tData);
-       SSstop(B,7);
-       PORTA = rData;
+       //SSstop(B,7);
+       //PORTA = rData;
     }
     return;
 }
 
 void IO_set(void){
-    TRISA = 0x00;           //Establecemos A como salidas (Leds)
+    //TRISA = 0x00;           //Establecemos A como salidas (Leds)
     TRISB &= ~(1<<7);  //Establecemos B7 como esclavo 1.
     PORTB |= (1<<7);      //Apagamos el esclavo 1 con HIGH en RB7
     return;
