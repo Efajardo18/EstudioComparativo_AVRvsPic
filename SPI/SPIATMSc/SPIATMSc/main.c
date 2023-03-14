@@ -23,8 +23,8 @@
 //VARIABLES
 //**************************************************************************************
 
-uint8_t rData = 0;
-uint8_t tData = 64;
+uint8_t rData = 15;
+uint8_t tData = 10;
 
 //**************************************************************************************
 //PROTOTIPOS
@@ -40,14 +40,27 @@ void SETUP_ADC(void);
 int main(void)
 {
 	IO_set();
-    SPIATM_set(1,LeastFirst,0,Slave,_F64);
+    SPIATM_set(1,MostFirst,A,Slave,_F64);
 	_delay_ms(10);
 	sei();
 	//SETUP_ADC();
 	SPDR = tData;
 	while(1)
     {
+		PORTD = rData;
 		
+		
+		/*if (rData == 15)
+		{
+			PORTD = 7;
+		}
+		else
+		{
+			PORTD = 0;
+			//while(1){
+				
+			//}
+		}*/
     }
 }
 
@@ -55,6 +68,7 @@ void IO_set(void)
 {
 	DDRC = 0x00;
 	PORTC = 0x00; 
+	DDRD = 0xFF;
 }
 
 void SETUP_ADC(void)

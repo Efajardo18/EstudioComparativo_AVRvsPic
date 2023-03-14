@@ -16,6 +16,7 @@
 #define C	  0
 #define D	  1
 #define B	  2
+#define A	  3
 
 #include <math.h>
 #include <avr/io.h>
