@@ -46,7 +46,6 @@ void I2CATM_Start(void){
 	TWCR = (1 << TWINT)|(1 << TWEN)|(1 << TWSTA);
 	while(!(TWCR & (1 << TWINT)));
 	if (((TW_STATUS) != TW_START )&& ((TW_STATUS) != TW_REP_START)){
-		PORTD |= (1<< PORTD0);
 		return;
 	}
 	return ;
@@ -62,7 +61,6 @@ void I2CATM_Write_Add(uint8_t SlaveAddress){
 	while (!(TWCR & (1 << TWINT)));
 	if ((TW_STATUS != TW_MR_SLA_ACK) && (TW_STATUS != TW_MT_SLA_ACK))
 	{
-		PORTD |= (1<< PORTD1);
 		return;
 	}
 	return;
@@ -73,7 +71,6 @@ void I2CATM_Write_Data(uint8_t Data){
 	TWCR = (1 << TWINT)|(1 << TWEN);
 	while (!(TWCR &(1 << TWINT)));
 	if(TW_STATUS != TW_MT_DATA_ACK){
-		PORTD |= (1<< PORTD2);
 		return;		
 	}
 	return;
@@ -84,7 +81,6 @@ uint8_t I2CATM_Read_Data(int read_ack){
 		TWCR = (1 << TWINT)|(1 << TWEN)|(1 << TWEA);
 		while(!(TWCR & (1 << TWINT)));
 		if (TW_STATUS != TW_MR_SLA_ACK){
-			PORTD |= (1<< PORTD7);
 			return	128;
 		}
 	}
@@ -92,11 +88,9 @@ uint8_t I2CATM_Read_Data(int read_ack){
 		TWCR = (1 << TWINT)|(1 << TWEN);
 		while (!(TWCR &(1 << TWINT)));
 		if (TW_STATUS != TW_MR_SLA_NACK){
-			PORTD |= (1<< PORTD6);
 			return 128;
 		}
 	}
-	PORTD = 0x00;
 	return TWDR;
 }
 
