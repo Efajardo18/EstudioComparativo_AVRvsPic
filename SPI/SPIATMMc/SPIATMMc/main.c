@@ -24,7 +24,7 @@
 //**************************************************************************************
 
 uint8_t rData = 0;
-uint8_t tData = 0;
+uint8_t tData = 15;
 
 //**************************************************************************************
 //PROTOTIPOS
@@ -41,13 +41,13 @@ int main(void)
 	IO_set();
 	SPIATM_set(0,LeastFirst,0,Master,_F128);
 	_delay_ms(10);
+	SPIATM_SSstart(C,4);
 	while (1)
 	{
-		SPIATM_SSstart(C,4);
 		SPIATM_Tx(tData);
 		rData = SPDR;
-		SPIATM_SSstop(C,4);
-		PORTD = rData;
+		//SPIATM_SSstop(C,4);
+		//PORTD = rData;
 	}
 	
 }
