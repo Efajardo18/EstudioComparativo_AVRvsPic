@@ -29,7 +29,6 @@
 // Use project enums instead of #define for ON and OFF.
 
 #define _XTAL_FREQ 8000000
-#define I2C_BaudRate 100000
 #define SlaveAddress 0x32
 
 #include <xc.h>
@@ -38,13 +37,14 @@
 #include "PICOSC.h"
 #include "I2Ccom.h"
 
-
 char tData = 100;
 char rData = 0;
 
 void main(void) {
+    TRISA = 0x00;
     OSC_set(_8M,0);
-    I2CPIC_Mset(0,I2C_BaudRate);
+    __delay_ms(100);
+    I2CPIC_Mset(0,100);
     while(1)
     {
         I2CPIC_Start();

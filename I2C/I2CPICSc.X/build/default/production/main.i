@@ -2837,10 +2837,11 @@ void I2CPIC_Mset(unsigned char IntEnable, unsigned long Clock){
 }
 
 void I2CPIC_Sset(int IntEnable, uint8_t SlaveAdd, char addressSize, int StartStopInt){
-    SSPSTAT |= (1<< 0x7);
-    TRISC |= (1<<0x4)|(1<<0x3);
-    SSPADD = SlaveAdd;
-    SSPCON |= (1<<0x5)|(1<<0x4)|(addressSize)|(StartStopInt<<0x3);
+    SSPSTAT = 0b10000000;
+    TRISC3 = 1;
+    TRISC4 = 1;
+    SSPADD = 0x26;
+    SSPCON = 0b00110110;
     if(IntEnable == 0){
         PIE1 &= ~(1<<0x3);
     }
@@ -2873,7 +2874,11 @@ void I2CPIC_Restart(void){
 void I2CPIC_MasterWrite(uint8_t Data){
     I2CPIC_Wait();
     SSPBUF = Data;
-    while(!PIR1bits.SSPIF);
+    while(!PIR1bits.SSPIF)
+    {
+     PORTA =(1 << 0x1);
+    }
+    PORTA &= ~(1 << 0x1);
 }
 
 unsigned int I2CPIC_MasterRead(uint8_t ACK){
@@ -2906,13 +2911,15 @@ uint8_t I2CPIC_SlaveFix(void){
 
 
 char tData = 50;
-char rData = 0;
+uint8_t rData = 0xAA;
 short z;
+
+void IO_set();
 
 void main(void) {
     OSC_set(7,0);
-    TRISA = 0;
-    I2CPIC_Sset(1, 0x32, 0b00000110, 0);
+    IO_set();
+    I2CPIC_Sset(1, 0x13, 0b00000110, 0);
     while(1)
     {
 
@@ -2920,18 +2927,24 @@ void main(void) {
     return;
 }
 
+void IO_set(void){
+    TRISB = 0;
+    PORTB = 0;
+}
+
 void __attribute__((picinterrupt(("")))) I2C_Slave_Read(void){
     if(PIR1 & 0b00001000){
-        SSPCON &= ~(1<<0x4);
+
         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
             z = SSPBUF;
             SSPCON &= ~(1<<0x7)&~(1<<0x6);
-            SSPCON |= (1<<0x4);;
+            SSPCONbits.CKP = 1;
+            rData = SSPBUF;
         }
         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW){
             z = SSPBUF;
             while(!BF);
-            PORTA = SSPBUF;
+            rData = SSPBUF;
             SSPCONbits.CKP = 1;
         }
         else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
@@ -2940,6 +2953,12 @@ void __attribute__((picinterrupt(("")))) I2C_Slave_Read(void){
             SSPBUF = tData;
             SSPCONbits.CKP = 1;
             while(SSPSTATbits.BF);
+        }
+        if(rData == 0b10101010){
+            PORTBbits.RB6 = 0;
+        }
+        else{
+            PORTBbits.RB6 = 1;
         }
         SSPIF = 0;
     }

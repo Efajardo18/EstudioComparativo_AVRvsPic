@@ -29,7 +29,7 @@
 // Use project enums instead of #define for ON and OFF.
 
 #define _XTAL_FREQ 8000000
-#define SlaveAddress 0x19
+#define SlaveAddress 0x13
 
 #include <xc.h>
 #include <stdint.h>
@@ -38,12 +38,14 @@
 #include "I2Ccom.h"
 
 char tData = 50;
-char rData = 0;
+uint8_t rData = 0xAA;
 short z;
+
+void IO_set();
 
 void main(void) {
     OSC_set(_8M,0);
-    TRISA = 0;
+    IO_set();
     I2CPIC_Sset(1, SlaveAddress, _7bits, 0);
     while(1)
     {
@@ -52,18 +54,24 @@ void main(void) {
     return;
 }
 
+void IO_set(void){
+    TRISB = 0;
+    PORTB = 0;
+}
+
 void __interrupt() I2C_Slave_Read(void){
     if(PIR1 & 0b00001000){
-        SSPCON &= ~(1<<_SSPCON_CKP_POSITION);           
+        //SSPCONbits.CKP = 0;           
         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
             z = SSPBUF;             
             SSPCON &= ~(1<<_SSPCON_WCOL_POSITION)&~(1<<_SSPCON_SSPOV_POSITION);
-            SSPCON |= (1<<_SSPCON_CKP_POSITION);;
+            SSPCONbits.CKP = 1;
+            rData = SSPBUF;
         }
         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW){
             z = SSPBUF;
             while(!BF);
-            PORTA = SSPBUF;
+            rData = SSPBUF;
             SSPCONbits.CKP = 1;
         }
         else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
@@ -72,6 +80,12 @@ void __interrupt() I2C_Slave_Read(void){
             SSPBUF = tData;
             SSPCONbits.CKP = 1;
             while(SSPSTATbits.BF);
+        }
+        if(rData == 0b10101010){
+            PORTBbits.RB6 = 0;
+        }
+        else{
+            PORTBbits.RB6 = 1;
         }
         SSPIF = 0;
     }

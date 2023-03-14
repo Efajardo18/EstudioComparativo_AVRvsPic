@@ -29,10 +29,11 @@ void I2CPIC_Mset(unsigned char IntEnable, unsigned long Clock){
 }
 
 void I2CPIC_Sset(int IntEnable, uint8_t SlaveAdd, char addressSize, int StartStopInt){
-    SSPSTAT |= (1<< _SSPSTAT_SMP_POSITION);
-    TRISC   |= (1<<_TRISC_TRISC4_POSITION)|(1<<_TRISC_TRISC3_POSITION);
-    SSPADD  = SlaveAdd;
-    SSPCON  |= (1<<_SSPCON_SSPEN_POSITION)|(1<<_SSPCON_CKP_POSITION)|(addressSize)|(StartStopInt<<_SSPCON_SSPM3_POSITION);
+    SSPSTAT = 0b10000000;
+    TRISC3 = 1;
+    TRISC4 = 1;
+    SSPADD  = 0x26;
+    SSPCON  = 0b00110110;
     if(IntEnable == 0){
         PIE1 &= ~(1<<_PIE1_SSPIE_POSITION);
     }
@@ -65,7 +66,11 @@ void I2CPIC_Restart(void){
 void I2CPIC_MasterWrite(uint8_t Data){
     I2CPIC_Wait();
     SSPBUF = Data;
-    while(!PIR1bits.SSPIF);
+    while(!PIR1bits.SSPIF)
+    {
+     PORTA =(1 << _PORTA_RA1_POSITION);   
+    }
+    PORTA &= ~(1 << _PORTA_RA1_POSITION);
 }
 
 unsigned int I2CPIC_MasterRead(uint8_t ACK){

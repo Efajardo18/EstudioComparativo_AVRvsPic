@@ -1,10 +1,3 @@
-/* 
- * File:   I2Ccom.h
- * Author: Olifa
- *
- * Created on 25 de octubre de 2022, 09:11 PM
- */
-
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ 8000000
 #endif	
@@ -18,14 +11,16 @@
 #include <math.h>
 
 void I2CPIC_Mset(unsigned char IntEnable, unsigned long Clock){
-    uint8_t dato;
-    TRISC   |= (1<<_TRISC_TRISC4_POSITION)|(1<<_TRISC_TRISC3_POSITION); 
-    SSPCON  |= (1 << _SSPCON_SSPEN_POSITION)|(1<< _SSPCON_SSPM3_POSITION);
-    SSPCON2 = 0;
-    dato = (uint8_t)((_XTAL_FREQ/ (4*Clock))-1);
-    SSPADD = dato;
+    TRISC3 = 1;
+    TRISC4 = 1;
+    SSPCON  = 0b00101000;
+    //TRISC   |= (1<<_TRISC_TRISC4_POSITION)|(1<<_TRISC_TRISC3_POSITION); 
+    //SSPCON  |= (1 << _SSPCON_SSPEN_POSITION)|(1<< _SSPCON_SSPM3_POSITION);
+    SSPCON2 = 0b00000000;
+    //dato = (uint8_t)((8000000/ (4*Clock))-1);
+    SSPADD = (8000000/ (4*Clock*100))-1;
     SSPSTAT = 0;
-    PIE1bits.SSPIE = IntEnable;
+    //PIE1bits.SSPIE = 0;
 }
 
 void I2CPIC_Sset(int IntEnable, uint8_t SlaveAdd, char addressSize, int StartStopInt){
@@ -44,12 +39,12 @@ void I2CPIC_Sset(int IntEnable, uint8_t SlaveAdd, char addressSize, int StartSto
 }
 
 void I2CPIC_Wait(void){
-    while((SSPSTAT & 0x04)||(SSPCON2 & 0x1F));
+    while( (SSPSTAT & 0x04) || (SSPCON2 & 0x1F) );
 }
 
 void I2CPIC_Start(void){
     I2CPIC_Wait();
-    SSPCON2 |= (1<< _SSPCON2_SEN_POSITION);
+    SEN = 1;
 }
 
 void I2CPIC_Stop(void){
@@ -65,7 +60,11 @@ void I2CPIC_Restart(void){
 void I2CPIC_MasterWrite(uint8_t Data){
     I2CPIC_Wait();
     SSPBUF = Data;
-    while(!PIR1bits.SSPIF);
+    while(!PIR1bits.SSPIF)
+    {
+     PORTA =(1 << _PORTA_RA1_POSITION);   
+    }
+    PORTA &= ~(1 << _PORTA_RA1_POSITION);
 }
 
 unsigned int I2CPIC_MasterRead(uint8_t ACK){
@@ -76,7 +75,7 @@ unsigned int I2CPIC_MasterRead(uint8_t ACK){
     while(!SSPIF);
     temp = SSPBUF;
     I2CPIC_Wait();
-    SSPCON2bits.ACKDT = ACK;
+    SSPCON2 |= (ACK << _SSPCON2_ACKDT_POSITION);
     SSPCON2 |= (1 << _SSPCON2_ACKEN_POSITION);
     return temp;
 }

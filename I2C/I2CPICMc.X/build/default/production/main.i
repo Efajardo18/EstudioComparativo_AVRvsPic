@@ -22,7 +22,14 @@
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
-# 35 "main.c"
+
+
+
+
+
+
+
+
 # 1 "D:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.h" 1 3
 # 18 "D:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2640,10 +2647,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "D:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC16Fxxx_DFP/1.3.42/xc8\\pic\\include\\xc.h" 2 3
-# 35 "main.c" 2
+# 34 "main.c" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdint.h" 1 3
-# 36 "main.c" 2
+# 35 "main.c" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\stdio.h" 1 3
 
@@ -2742,7 +2749,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 37 "main.c" 2
+# 36 "main.c" 2
 
 # 1 "./PICOSC.h" 1
 # 24 "./PICOSC.h"
@@ -2778,10 +2785,10 @@ void OSC_set(char FreqClockSelect, char InternalOsc){
         OSCCON &= ~(1<< 0x0);
     }
 }
-# 38 "main.c" 2
+# 37 "main.c" 2
 
 # 1 "./I2Ccom.h" 1
-# 18 "./I2Ccom.h"
+# 11 "./I2Ccom.h"
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.36\\pic\\include\\c90\\math.h" 1 3
 
 
@@ -2815,18 +2822,20 @@ extern double ldexp(double, int);
 extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
-# 18 "./I2Ccom.h" 2
+# 11 "./I2Ccom.h" 2
 
 
 void I2CPIC_Mset(unsigned char IntEnable, unsigned long Clock){
-    uint8_t dato;
-    TRISC |= (1<<0x4)|(1<<0x3);
-    SSPCON |= (1 << 0x5)|(1<< 0x3);
-    SSPCON2 = 0;
-    dato = (uint8_t)((8000000/ (4*Clock))-1);
-    SSPADD = dato;
+    TRISC3 = 1;
+    TRISC4 = 1;
+    SSPCON = 0b00101000;
+
+
+    SSPCON2 = 0b00000000;
+
+    SSPADD = (8000000/ (4*Clock*100))-1;
     SSPSTAT = 0;
-    PIE1bits.SSPIE = IntEnable;
+    PIE1bits.SSPIE = 0;
 }
 
 void I2CPIC_Sset(int IntEnable, uint8_t SlaveAdd, char addressSize, int StartStopInt){
@@ -2845,12 +2854,13 @@ void I2CPIC_Sset(int IntEnable, uint8_t SlaveAdd, char addressSize, int StartSto
 }
 
 void I2CPIC_Wait(void){
-    while((SSPSTAT & 0x04)||(SSPCON2 & 0x1F));
+    while( (SSPSTAT & 0x04) || (SSPCON2 & 0x1F) );
 }
 
 void I2CPIC_Start(void){
     I2CPIC_Wait();
-    SSPCON2 |= (1<< 0x0);
+    SEN = 1;
+    RA0 = 1;
 }
 
 void I2CPIC_Stop(void){
@@ -2866,7 +2876,11 @@ void I2CPIC_Restart(void){
 void I2CPIC_MasterWrite(uint8_t Data){
     I2CPIC_Wait();
     SSPBUF = Data;
-    while(!PIR1bits.SSPIF);
+    while(!PIR1bits.SSPIF)
+    {
+     PORTA =(1 << 0x1);
+    }
+    PORTA &= ~(1 << 0x1);
 }
 
 unsigned int I2CPIC_MasterRead(uint8_t ACK){
@@ -2895,7 +2909,7 @@ uint8_t I2CPIC_SlaveFix(void){
         return 0;
     }
 }
-# 39 "main.c" 2
+# 38 "main.c" 2
 
 
 
@@ -2903,8 +2917,10 @@ char tData = 100;
 char rData = 0;
 
 void main(void) {
+    TRISA = 0x00;
     OSC_set(7,0);
-    I2CPIC_Mset(0,100000);
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    I2CPIC_Mset(0,100);
     while(1)
     {
         I2CPIC_Start();
